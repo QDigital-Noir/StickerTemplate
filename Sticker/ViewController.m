@@ -83,5 +83,4 @@
     self.selectedView = stickerView;
 }
 
-
 @end

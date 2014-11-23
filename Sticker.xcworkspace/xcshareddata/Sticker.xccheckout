@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8A57925D-8527-4DA5-A123-5D60C231480D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Sticker</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D1B92CA65B09EED08724481841AED1DBDDD82FAF</key>
+		<string>https://github.com/QDigital-Noir/StickerTemplate.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Sticker.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D1B92CA65B09EED08724481841AED1DBDDD82FAF</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/QDigital-Noir/StickerTemplate.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D1B92CA65B09EED08724481841AED1DBDDD82FAF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D1B92CA65B09EED08724481841AED1DBDDD82FAF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>StickerTemplate</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10BE1C6D1A2200BA003A9A88 /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BE1C6C1A2200BA003A9A88 /* IAPHelper.m */; };
+		10BE1C6F1A2206BD003A9A88 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BE1C6E1A2206BD003A9A88 /* StoreKit.framework */; };
 		10E52B9E1A21BD3D00D82814 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E52B9D1A21BD3D00D82814 /* main.m */; };
 		10E52BA11A21BD3D00D82814 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E52BA01A21BD3D00D82814 /* AppDelegate.m */; };
 		10E52BA41A21BD3D00D82814 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E52BA31A21BD3D00D82814 /* ViewController.m */; };
@@ -28,6 +30,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10BE1C6B1A2200BA003A9A88 /* IAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
+		10BE1C6C1A2200BA003A9A88 /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
+		10BE1C6E1A2206BD003A9A88 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		10E52B981A21BD3D00D82814 /* Sticker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sticker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10E52B9C1A21BD3D00D82814 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10E52B9D1A21BD3D00D82814 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -51,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10BE1C6F1A2206BD003A9A88 /* StoreKit.framework in Frameworks */,
 				3048C3DF0076E5844A52169D /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,6 +71,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10BE1C671A21FF97003A9A88 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				10BE1C6B1A2200BA003A9A88 /* IAPHelper.h */,
+				10BE1C6C1A2200BA003A9A88 /* IAPHelper.m */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		10E52B8F1A21BD3D00D82814 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +103,7 @@
 		10E52B9A1A21BD3D00D82814 /* Sticker */ = {
 			isa = PBXGroup;
 			children = (
+				10BE1C671A21FF97003A9A88 /* Helper */,
 				10E52B9F1A21BD3D00D82814 /* AppDelegate.h */,
 				10E52BA01A21BD3D00D82814 /* AppDelegate.m */,
 				10E52BA21A21BD3D00D82814 /* ViewController.h */,
@@ -129,6 +145,7 @@
 		7408DEAF5A14AD1C21D2FB00 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				10BE1C6E1A2206BD003A9A88 /* StoreKit.framework */,
 				E2CAFEC3D2A89EBFD618D367 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -278,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10BE1C6D1A2200BA003A9A88 /* IAPHelper.m in Sources */,
 				10E52BA41A21BD3D00D82814 /* ViewController.m in Sources */,
 				10E52BA11A21BD3D00D82814 /* AppDelegate.m in Sources */,
 				10E52B9E1A21BD3D00D82814 /* main.m in Sources */,
@@ -405,10 +423,13 @@
 			baseConfigurationReference = DAC843FDE9291B6B2B53BC2D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alan Dang (J2EG24V3F8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alan Dang (J2EG24V3F8)";
 				INFOPLIST_FILE = Sticker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "556fe642-a29e-4ab7-bb5c-96e845d95427";
 			};
 			name = Debug;
 		};
@@ -417,10 +438,13 @@
 			baseConfigurationReference = 91D7BCE7E7C018082A36AAEE /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alan Dang (J2EG24V3F8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alan Dang (J2EG24V3F8)";
 				INFOPLIST_FILE = Sticker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "556fe642-a29e-4ab7-bb5c-96e845d95427";
 			};
 			name = Release;
 		};
