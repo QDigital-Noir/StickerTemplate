@@ -1,0 +1,2 @@
+StickerTemplate
+===============
