@@ -1,0 +1,1 @@
+../../../CHTStickerView/CHTStickerView.h
