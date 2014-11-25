@@ -7,7 +7,6 @@
 //
 
 #import "IAPHelper.h"
-#import <Parse/Parse.h>
 
 @implementation IAPHelper
 

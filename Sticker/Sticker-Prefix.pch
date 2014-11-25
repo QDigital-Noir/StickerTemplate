@@ -1,0 +1,35 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <Parse/Parse.h>
+    #import "ECSlidingViewController.h"
+    #import "UIViewController+ECSlidingViewController.h"
+
+
+#define IS_IOS_AT_LEAST(ver)    ([[[UIDevice currentDevice] systemVersion] compare:ver] != NSOrderedAscending)
+#define AppDelegateAccessor ((WMAppDelegate *)[[UIApplication sharedApplication] delegate])
+#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+#define FONT_BOLD(s) [UIFont fontWithName:@"Montserrat-Bold" size:s]
+#define FONT_REGULAR(s) [UIFont fontWithName:@"Montserrat-Regular" size:s]
+#define FONT_HEAVYOBLIQUE(s) [UIFont fontWithName:@"Avenir-HeavyOblique" size:s]
+#define FONT_ITALIC(s) [UIFont fontWithName:@"knewave" size:s]
+#define kDevParseID "Y4Rrgj7vB443ZUNbTZoqMYzNQOPxb8PfygtdC8hj"
+#define kDevParseClientKey "tlxNRUAlniLv6jQXg5F1AyfaeIB94cGtGX64VFwV"
+#define kProductionParseID "OufGu1DRNGMMBuP9JzE7a1eeG2OyQ3yvZE8uwgKa"
+#define kProductionParseClientKey "18DwWnTomLQ97oAZVpN92UjdC1M9vEgvfgz6fyA9"
+#define kUpdateProfileNotification "UPDATE_USER_PROFILE"
+#define kUpdateFavouriteBeer "UPDATE_FAVOURITE"
+
+#endif
