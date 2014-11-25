@@ -56,6 +56,9 @@
                                             withECSliderVC:self.slidingViewController
                                                andGuesture:self.dynamicTransitionPanGesture];
     self.slidingViewController.panGesture.enabled = YES;
+    
+    NSLog(@"CATEGORY : %@", [[Helper sharedHelper] getStickerCategory]);
+    NSLog(@"LIST : %@", [[Helper sharedHelper] getStickerListWithKey:@"War"]);
 }
 
 - (void)didReceiveMemoryWarning {

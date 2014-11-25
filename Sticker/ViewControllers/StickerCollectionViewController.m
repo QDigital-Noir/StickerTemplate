@@ -39,14 +39,14 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.propsArray.count;
+    return 0;//self.propsArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *identifier = @"Cell";
     StickerCollectionViewCell *cell = (StickerCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    [cell setImageWithURL:self.propsArray[indexPath.row]];
+//    [cell setImageWithURL:self.propsArray[indexPath.row]];
     return cell;
 }
 
@@ -59,11 +59,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NSLog(@"buttonIndex : %d", buttonIndex);
-    if (buttonIndex == 1)
-    {
-        [[PBPIAP sharedInstance] buyProduct:self.iapProduct];
-    }
+
 }
 
 

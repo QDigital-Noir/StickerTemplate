@@ -51,4 +51,20 @@
     }
 }
 
+- (NSArray *)getStickerCategory
+{
+    // Read plist from bundle and get Root Dictionary out of it
+    NSDictionary *dictRoot = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"StickerList" ofType:@"plist"]];
+
+    return [dictRoot allKeys];
+}
+
+- (NSArray *)getStickerListWithKey:(NSString *)key
+{
+    // Read plist from bundle and get Root Dictionary out of it
+    NSDictionary *dictRoot = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"StickerList" ofType:@"plist"]];
+    
+    return (NSArray *)[dictRoot objectForKey:key];
+}
+
 @end

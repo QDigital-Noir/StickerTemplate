@@ -17,4 +17,6 @@
                      withTransition:(BPTransition *)transitions
                      withECSliderVC:(ECSlidingViewController *)slidingVC
                         andGuesture:(UIPanGestureRecognizer *)transitionPanGesture;
+- (NSArray *)getStickerCategory;
+- (NSArray *)getStickerListWithKey:(NSString *)key;
 @end
