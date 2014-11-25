@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>FCVerticalMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-AFNetworking.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -20,6 +25,11 @@
 			<false/>
 		</dict>
 		<key>Pods-ECSlidingViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-FCVerticalMenu.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -62,57 +72,67 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2C60A55EDA7BAAF0F3C85C73</key>
+		<key>1F223E62406F7B39A5AC33B1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>35A085143AC444C0750ABCE1</key>
+		<key>2DFEF31AE97545359E114BF2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3DC492C62DACA4BEA4BFE02B</key>
+		<key>5E50E65AB3D057DD111EFB64</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4830AB08D2D83FA6CF310600</key>
+		<key>5EF2BE4CB6772249852E1F39</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5902CF3FC9CF8FD9DA7B3399</key>
+		<key>6DFE463E72252AEE99FFFB82</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>892BAC72231FD5ECF8556ED4</key>
+		<key>921CD285B4281860AC506EFA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8AC7348A23A70237EEC5F1B1</key>
+		<key>9C9CD859DFDA1D74ECC138C9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9DE2225B1E7E1CEE7D8FC9E3</key>
+		<key>9D18BD9700F0B5E95687A2D9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BF41D5B08C88FD31B1126E11</key>
+		<key>9DC5779CB9C2D9C35E795AB5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CEDC772FC20FFF92EF619897</key>
+		<key>BFC3BA70E0E157C91BC7F375</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D62611F0B224989F07C60D11</key>
+		<key>C906E614312F7910FE4AC9DA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D0DF32E35FE2F25B7123D3AB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EC23198B0191A7454B20B7EF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

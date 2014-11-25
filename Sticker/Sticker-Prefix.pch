@@ -16,6 +16,7 @@
     #import <Parse/Parse.h>
     #import "ECSlidingViewController.h"
     #import "UIViewController+ECSlidingViewController.h"
+    #import "Helper.h"
 
 
 #define IS_IOS_AT_LEAST(ver)    ([[[UIDevice currentDevice] systemVersion] compare:ver] != NSOrderedAscending)

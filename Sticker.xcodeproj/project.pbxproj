@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1083EC141A2484DD00534CBB /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1083EC131A2484DD00534CBB /* MenuViewController.m */; };
+		1083EC1A1A24864600534CBB /* BPDynamicTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1083EC171A24864600534CBB /* BPDynamicTransition.m */; };
+		1083EC1B1A24864600534CBB /* BPTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1083EC191A24864600534CBB /* BPTransition.m */; };
+		1083EC1F1A24877400534CBB /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1083EC1E1A24877400534CBB /* Helper.m */; };
 		10BE1C6D1A2200BA003A9A88 /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BE1C6C1A2200BA003A9A88 /* IAPHelper.m */; };
 		10BE1C6F1A2206BD003A9A88 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BE1C6E1A2206BD003A9A88 /* StoreKit.framework */; };
 		10E52B9E1A21BD3D00D82814 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E52B9D1A21BD3D00D82814 /* main.m */; };
@@ -30,6 +34,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1083EC121A2484DD00534CBB /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		1083EC131A2484DD00534CBB /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		1083EC161A24864600534CBB /* BPDynamicTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPDynamicTransition.h; sourceTree = "<group>"; };
+		1083EC171A24864600534CBB /* BPDynamicTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPDynamicTransition.m; sourceTree = "<group>"; };
+		1083EC181A24864600534CBB /* BPTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPTransition.h; sourceTree = "<group>"; };
+		1083EC191A24864600534CBB /* BPTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPTransition.m; sourceTree = "<group>"; };
+		1083EC1C1A2486E600534CBB /* Sticker-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Sticker-Prefix.pch"; sourceTree = "<group>"; };
+		1083EC1D1A24877400534CBB /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
+		1083EC1E1A24877400534CBB /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
 		10BE1C6B1A2200BA003A9A88 /* IAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
 		10BE1C6C1A2200BA003A9A88 /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
 		10BE1C6E1A2206BD003A9A88 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -74,8 +87,21 @@
 		10566DE31A239656004E668A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1083EC121A2484DD00534CBB /* MenuViewController.h */,
+				1083EC131A2484DD00534CBB /* MenuViewController.m */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1083EC151A2485E500534CBB /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				1083EC161A24864600534CBB /* BPDynamicTransition.h */,
+				1083EC171A24864600534CBB /* BPDynamicTransition.m */,
+				1083EC181A24864600534CBB /* BPTransition.h */,
+				1083EC191A24864600534CBB /* BPTransition.m */,
+			);
+			path = Transition;
 			sourceTree = "<group>";
 		};
 		10BE1C671A21FF97003A9A88 /* Helper */ = {
@@ -83,6 +109,8 @@
 			children = (
 				10BE1C6B1A2200BA003A9A88 /* IAPHelper.h */,
 				10BE1C6C1A2200BA003A9A88 /* IAPHelper.m */,
+				1083EC1D1A24877400534CBB /* Helper.h */,
+				1083EC1E1A24877400534CBB /* Helper.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -110,6 +138,7 @@
 		10E52B9A1A21BD3D00D82814 /* Sticker */ = {
 			isa = PBXGroup;
 			children = (
+				1083EC151A2485E500534CBB /* Transition */,
 				10566DE31A239656004E668A /* ViewControllers */,
 				10BE1C671A21FF97003A9A88 /* Helper */,
 				10E52B9F1A21BD3D00D82814 /* AppDelegate.h */,
@@ -127,6 +156,7 @@
 		10E52B9B1A21BD3D00D82814 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1083EC1C1A2486E600534CBB /* Sticker-Prefix.pch */,
 				10E52B9C1A21BD3D00D82814 /* Info.plist */,
 				10E52B9D1A21BD3D00D82814 /* main.m */,
 			);
@@ -303,10 +333,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1083EC1B1A24864600534CBB /* BPTransition.m in Sources */,
 				10BE1C6D1A2200BA003A9A88 /* IAPHelper.m in Sources */,
 				10E52BA41A21BD3D00D82814 /* ViewController.m in Sources */,
+				1083EC1F1A24877400534CBB /* Helper.m in Sources */,
+				1083EC1A1A24864600534CBB /* BPDynamicTransition.m in Sources */,
 				10E52BA11A21BD3D00D82814 /* AppDelegate.m in Sources */,
 				10E52B9E1A21BD3D00D82814 /* main.m in Sources */,
+				1083EC141A2484DD00534CBB /* MenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

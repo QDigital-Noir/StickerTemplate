@@ -66,6 +66,12 @@
 #define COCOAPODS_VERSION_MINOR_ECSlidingViewController 0
 #define COCOAPODS_VERSION_PATCH_ECSlidingViewController 3
 
+// FCVerticalMenu
+#define COCOAPODS_POD_AVAILABLE_FCVerticalMenu
+#define COCOAPODS_VERSION_MAJOR_FCVerticalMenu 0
+#define COCOAPODS_VERSION_MINOR_FCVerticalMenu 1
+#define COCOAPODS_VERSION_PATCH_FCVerticalMenu 2
+
 // FlurrySDK
 #define COCOAPODS_POD_AVAILABLE_FlurrySDK
 #define COCOAPODS_VERSION_MAJOR_FlurrySDK 5

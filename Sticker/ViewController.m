@@ -7,9 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "BPDynamicTransition.h"
+#import "BPTransition.h"
 
-@interface ViewController ()
-
+@interface ViewController () <ECSlidingViewControllerDelegate>
+@property (nonatomic, strong) BPTransition *transitions;
+@property (nonatomic, strong) UIPanGestureRecognizer *dynamicTransitionPanGesture;
 @property (nonatomic, strong) CHTStickerView *selectedView;
 
 @end
@@ -46,12 +49,40 @@
     [self.view addSubview:stickerView2];
     
     self.selectedView = stickerView;
+    
+    // Setup Reveal
+    [[Helper sharedHelper] setupRevealWithNavigationVC:self.navigationController
+                                            withTransition:self.transitions
+                                            withECSliderVC:self.slidingViewController
+                                               andGuesture:self.dynamicTransitionPanGesture];
+    self.slidingViewController.panGesture.enabled = YES;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Properties
+
+- (BPTransition *)transitions
+{
+    if (_transitions) return _transitions;
+    
+    _transitions = [[BPTransition alloc] init];
+    
+    return _transitions;
+}
+
+- (UIPanGestureRecognizer *)dynamicTransitionPanGesture
+{
+    if (_dynamicTransitionPanGesture) return _dynamicTransitionPanGesture;
+    
+    _dynamicTransitionPanGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self.transitions.dynamicTransition action:@selector(handlePanGesture:)];
+    
+    return _dynamicTransitionPanGesture;
+}
+
 
 #pragma mark - Functions
 
@@ -82,5 +113,35 @@
 {
     self.selectedView = stickerView;
 }
+
+/*
+- (void)createImagePicker {
+    
+    imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+    imagePicker.mediaTypes = [NSArray arrayWithObject:@"public.movie"];
+    imagePicker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModeVideo;
+    
+    imagePicker.allowsEditing = NO;
+    imagePicker.showsCameraControls = NO;
+    
+    // transform preview to full screen
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    
+    // iOS is going to calculate a size which constrains the 4:3 aspect ratio
+    // to the screen size. We're basically mimicking that here to determine
+    // what size the system will likely display the image at on screen.
+    // NOTE: screenSize.width may seem odd in this calculation - but, remember,
+    // the devices only take 4:3 images when they are oriented *sideways*.
+    float cameraAspectRatio = 4.0 / 3.0;
+    float imageWidth = floorf(screenSize.width * cameraAspectRatio);
+    float scale = ceilf((screenSize.height / imageWidth) * 10.0) / 10.0;
+    
+    imagePicker.cameraViewTransform = CGAffineTransformMakeScale(scale, scale);
+    
+    imagePicker.delegate = self;
+}
+ */
 
 @end
