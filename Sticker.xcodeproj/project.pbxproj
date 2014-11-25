@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1046A42B1A24BCFD005B3E29 /* StickerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1046A42A1A24BCFD005B3E29 /* StickerCollectionViewController.m */; };
+		1046A42F1A24BF15005B3E29 /* StickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1046A42E1A24BF15005B3E29 /* StickerCollectionViewCell.m */; };
+		1046A4321A24C1D6005B3E29 /* StickerList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1046A4311A24C1D6005B3E29 /* StickerList.plist */; };
 		1083EC141A2484DD00534CBB /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1083EC131A2484DD00534CBB /* MenuViewController.m */; };
 		1083EC1A1A24864600534CBB /* BPDynamicTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1083EC171A24864600534CBB /* BPDynamicTransition.m */; };
 		1083EC1B1A24864600534CBB /* BPTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1083EC191A24864600534CBB /* BPTransition.m */; };
@@ -34,6 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1046A4291A24BCFD005B3E29 /* StickerCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickerCollectionViewController.h; sourceTree = "<group>"; };
+		1046A42A1A24BCFD005B3E29 /* StickerCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickerCollectionViewController.m; sourceTree = "<group>"; };
+		1046A42D1A24BF15005B3E29 /* StickerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickerCollectionViewCell.h; sourceTree = "<group>"; };
+		1046A42E1A24BF15005B3E29 /* StickerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickerCollectionViewCell.m; sourceTree = "<group>"; };
+		1046A4311A24C1D6005B3E29 /* StickerList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StickerList.plist; sourceTree = "<group>"; };
 		1083EC121A2484DD00534CBB /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		1083EC131A2484DD00534CBB /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		1083EC161A24864600534CBB /* BPDynamicTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPDynamicTransition.h; sourceTree = "<group>"; };
@@ -84,11 +92,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1046A42C1A24BED3005B3E29 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1046A42D1A24BF15005B3E29 /* StickerCollectionViewCell.h */,
+				1046A42E1A24BF15005B3E29 /* StickerCollectionViewCell.m */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		1046A4301A24C1B0005B3E29 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				1046A4311A24C1D6005B3E29 /* StickerList.plist */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		10566DE31A239656004E668A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1046A42C1A24BED3005B3E29 /* Cells */,
 				1083EC121A2484DD00534CBB /* MenuViewController.h */,
 				1083EC131A2484DD00534CBB /* MenuViewController.m */,
+				1046A4291A24BCFD005B3E29 /* StickerCollectionViewController.h */,
+				1046A42A1A24BCFD005B3E29 /* StickerCollectionViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -138,6 +166,7 @@
 		10E52B9A1A21BD3D00D82814 /* Sticker */ = {
 			isa = PBXGroup;
 			children = (
+				1046A4301A24C1B0005B3E29 /* Data */,
 				1083EC151A2485E500534CBB /* Transition */,
 				10566DE31A239656004E668A /* ViewControllers */,
 				10BE1C671A21FF97003A9A88 /* Helper */,
@@ -280,6 +309,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1046A4321A24C1D6005B3E29 /* StickerList.plist in Resources */,
 				10E52BA71A21BD3D00D82814 /* Main.storyboard in Resources */,
 				10E52BAC1A21BD3D00D82814 /* LaunchScreen.xib in Resources */,
 				10E52BA91A21BD3D00D82814 /* Images.xcassets in Resources */,
@@ -334,6 +364,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1083EC1B1A24864600534CBB /* BPTransition.m in Sources */,
+				1046A42B1A24BCFD005B3E29 /* StickerCollectionViewController.m in Sources */,
+				1046A42F1A24BF15005B3E29 /* StickerCollectionViewCell.m in Sources */,
 				10BE1C6D1A2200BA003A9A88 /* IAPHelper.m in Sources */,
 				10E52BA41A21BD3D00D82814 /* ViewController.m in Sources */,
 				1083EC1F1A24877400534CBB /* Helper.m in Sources */,
