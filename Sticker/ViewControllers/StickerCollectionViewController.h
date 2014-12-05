@@ -11,5 +11,6 @@
 @interface StickerCollectionViewController : UIViewController
 
 @property (nonatomic, strong) IBOutlet UICollectionView  *stickerCollectionView;
+@property (nonatomic, strong) NSArray *stickerArray;
 
 @end

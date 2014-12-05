@@ -14,6 +14,7 @@
 		1083EC1A1A24864600534CBB /* BPDynamicTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1083EC171A24864600534CBB /* BPDynamicTransition.m */; };
 		1083EC1B1A24864600534CBB /* BPTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1083EC191A24864600534CBB /* BPTransition.m */; };
 		1083EC1F1A24877400534CBB /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1083EC1E1A24877400534CBB /* Helper.m */; };
+		1097915C1A2605FA00FBB307 /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1097915B1A2605FA00FBB307 /* MenuTableViewCell.m */; };
 		10BE1C6D1A2200BA003A9A88 /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BE1C6C1A2200BA003A9A88 /* IAPHelper.m */; };
 		10BE1C6F1A2206BD003A9A88 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BE1C6E1A2206BD003A9A88 /* StoreKit.framework */; };
 		10E52B9E1A21BD3D00D82814 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E52B9D1A21BD3D00D82814 /* main.m */; };
@@ -51,6 +52,8 @@
 		1083EC1C1A2486E600534CBB /* Sticker-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Sticker-Prefix.pch"; sourceTree = "<group>"; };
 		1083EC1D1A24877400534CBB /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
 		1083EC1E1A24877400534CBB /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
+		1097915A1A2605FA00FBB307 /* MenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewCell.h; sourceTree = "<group>"; };
+		1097915B1A2605FA00FBB307 /* MenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewCell.m; sourceTree = "<group>"; };
 		10BE1C6B1A2200BA003A9A88 /* IAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
 		10BE1C6C1A2200BA003A9A88 /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
 		10BE1C6E1A2206BD003A9A88 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -97,6 +100,8 @@
 			children = (
 				1046A42D1A24BF15005B3E29 /* StickerCollectionViewCell.h */,
 				1046A42E1A24BF15005B3E29 /* StickerCollectionViewCell.m */,
+				1097915A1A2605FA00FBB307 /* MenuTableViewCell.h */,
+				1097915B1A2605FA00FBB307 /* MenuTableViewCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -370,6 +375,7 @@
 				10E52BA41A21BD3D00D82814 /* ViewController.m in Sources */,
 				1083EC1F1A24877400534CBB /* Helper.m in Sources */,
 				1083EC1A1A24864600534CBB /* BPDynamicTransition.m in Sources */,
+				1097915C1A2605FA00FBB307 /* MenuTableViewCell.m in Sources */,
 				10E52BA11A21BD3D00D82814 /* AppDelegate.m in Sources */,
 				10E52B9E1A21BD3D00D82814 /* main.m in Sources */,
 				1083EC141A2484DD00534CBB /* MenuViewController.m in Sources */,

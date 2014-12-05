@@ -10,7 +10,7 @@
 #import "BPDynamicTransition.h"
 #import "BPTransition.h"
 
-@interface ViewController () <ECSlidingViewControllerDelegate>
+@interface ViewController () <ECSlidingViewControllerDelegate, UINavigationControllerDelegate>
 @property (nonatomic, strong) BPTransition *transitions;
 @property (nonatomic, strong) UIPanGestureRecognizer *dynamicTransitionPanGesture;
 @property (nonatomic, strong) CHTStickerView *selectedView;
@@ -21,6 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) self.edgesForExtendedLayout = UIRectEdgeNone;
     
     // Test
     UIView *testView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 100)];
@@ -50,15 +52,15 @@
     
     self.selectedView = stickerView;
     
+    self.navigationController.navigationBarHidden = NO;
+    
+    
     // Setup Reveal
     [[Helper sharedHelper] setupRevealWithNavigationVC:self.navigationController
                                             withTransition:self.transitions
                                             withECSliderVC:self.slidingViewController
                                                andGuesture:self.dynamicTransitionPanGesture];
     self.slidingViewController.panGesture.enabled = YES;
-    
-    NSLog(@"CATEGORY : %@", [[Helper sharedHelper] getStickerCategory]);
-    NSLog(@"LIST : %@", [[Helper sharedHelper] getStickerListWithKey:@"War"]);
 }
 
 - (void)didReceiveMemoryWarning {

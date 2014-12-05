@@ -17,7 +17,7 @@
     #import "ECSlidingViewController.h"
     #import "UIViewController+ECSlidingViewController.h"
     #import "Helper.h"
-
+    #import <SDWebImage/UIImageView+WebCache.h>
 
 #define IS_IOS_AT_LEAST(ver)    ([[[UIDevice currentDevice] systemVersion] compare:ver] != NSOrderedAscending)
 #define AppDelegateAccessor ((WMAppDelegate *)[[UIApplication sharedApplication] delegate])
