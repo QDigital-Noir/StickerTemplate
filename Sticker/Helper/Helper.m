@@ -75,13 +75,11 @@
 
 #pragma mark - HUD
 
-- (void)showHUD
+- (void)showHUDWithView:(UIView *)view
 {
-    UIWindow *mainWindow = [[[UIApplication sharedApplication] delegate] window];
-    
-    self.bouncingBalls = [[PQFBouncingBalls alloc] initLoaderOnView:mainWindow];
+    self.bouncingBalls = [[PQFBouncingBalls alloc] initLoaderOnView:view];
     self.bouncingBalls.backgroundColor = [UIColor colorWithWhite:0.2 alpha:0.0];
-    self.bouncingBalls.center = CGPointMake(mainWindow.frame.size.width/2, (mainWindow.frame.size.height/2));
+    self.bouncingBalls.center = CGPointMake(view.frame.size.width/2, (view.frame.size.height/2) - 64);
     [self.bouncingBalls show];
 }
 

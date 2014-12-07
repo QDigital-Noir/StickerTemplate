@@ -44,7 +44,7 @@
             </objects>
             <point key="canvasLocation" x="973" y="-346"/>
         </scene>
-        <!--Main-->
+        <!--Action Movie FX Stickers-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -54,13 +54,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="Main" id="nrl-mz-Vdi"/>
+                    <navigationItem key="navigationItem" title="Action Movie FX Stickers" id="nrl-mz-Vdi"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1938" y="357"/>
         </scene>
-        <!--Sliding View Controller-->
+        <!--Action Movie FX Stickers-->
         <scene sceneID="Omf-H8-5sE">
             <objects>
                 <viewController id="8Er-de-cxU" customClass="ECSlidingViewController" sceneMemberID="viewController">
@@ -70,7 +70,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" id="jBh-P1-xBH"/>
+                    <navigationItem key="navigationItem" title="Action Movie FX Stickers" id="jBh-P1-xBH"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="underLeftViewControllerStoryboardId" value="MenuViewController"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="topViewControllerStoryboardId" value="ViewController"/>

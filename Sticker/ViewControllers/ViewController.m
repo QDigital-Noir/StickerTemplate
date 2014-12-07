@@ -14,6 +14,9 @@
 @property (nonatomic, strong) BPTransition *transitions;
 @property (nonatomic, strong) UIPanGestureRecognizer *dynamicTransitionPanGesture;
 @property (nonatomic, strong) CHTStickerView *selectedView;
+@property (nonatomic, strong) UIImage *stickerImage;
+@property (nonatomic, strong) UIImageView *originalImageView;
+@property (nonatomic, strong) UIImageView *stickerImageView;
 
 @end
 
@@ -35,7 +38,6 @@
                                                andGuesture:self.dynamicTransitionPanGesture];
     self.slidingViewController.panGesture.enabled = YES;
     [self setupScreen];
-    [[Helper sharedHelper] showHUD];
 }
 
 - (void)didReceiveMemoryWarning
@@ -100,11 +102,11 @@
 - (void)openImagePicker
 {
     
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
     {
         
         UIImagePickerController *picker = [[UIImagePickerController alloc]init];
-        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         picker.delegate = self;
         picker.allowsEditing = NO;
         
@@ -124,8 +126,7 @@
 
 - (void)setupScreen
 {
-    self.navigationController.title = @"Action Sticker Props";
-    
+    /*
     for (NSString* family in [UIFont familyNames])
     {
         NSLog(@"%@", family);
@@ -135,6 +136,26 @@
             NSLog(@"  %@", name);
         }
     }
+    */
+    
+    UIButton *btnRight = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btnRight setFrame:CGRectMake(0, 0, 30, 30)];
+    [btnRight setImage:[UIImage imageNamed:@"menu_icon"] forState:UIControlStateNormal];
+    [btnRight addTarget:self action:@selector(menuTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *barBtnRight = [[UIBarButtonItem alloc] initWithCustomView:btnRight];
+    [barBtnRight setTintColor:[UIColor whiteColor]];
+    [self.slidingViewController.navigationItem setLeftBarButtonItem:barBtnRight];
+
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Portrait"]];
+    
+//    [self test];
+    
+    [self openImagePicker];
+    
+    self.originalImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    self.originalImageView.backgroundColor = [UIColor redColor];
+    [self.view addSubview:self.originalImageView];
 }
 
 - (void)test
@@ -179,20 +200,91 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     
-//    // grab our movie URL
-//    NSURL *chosenMovie = [info objectForKey:UIImagePickerControllerMediaURL];
+    
+    UIImage *chosenImage = info[UIImagePickerControllerOriginalImage];
+//    CGSize newSize = CGSizeMake(100.0f, 100.0f);
+//    UIGraphicsBeginImageContext(newSize);
+//    [chosenImage drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+//    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+    
+    if (chosenImage.size.width > chosenImage.size.height)
+    {
+        // Landscape
+        float oldWidth = self.view.frame.size.width;
+        float scaleFactor = 200 / oldWidth;
+        
+        float newHeight = self.view.frame.size.height * scaleFactor;
+        float newWidth = oldWidth * scaleFactor;
+        
+        CGRect rect = self.originalImageView.frame;
+        rect.size.height = newWidth;
+        rect.size.width = newHeight;
+        
+        self.originalImageView.frame = rect;
+        self.originalImageView.center = CGPointMake(self.view.frame.size.width/2 , self.view.frame.size.height/2);
+        self.originalImageView.image = chosenImage;
+        self.originalImageView.contentMode = UIViewContentModeScaleAspectFit;
+    }
+    else
+    {
+        // Portrait
+        float oldWidth = self.view.frame.size.width;
+        float scaleFactor = 280 / oldWidth;
+        
+        float newHeight = self.view.frame.size.height * scaleFactor;
+        float newWidth = oldWidth * scaleFactor;
+        
+        CGRect rect = self.originalImageView.frame;
+        rect.size.height = newHeight;
+        rect.size.width = newWidth;
+        
+        self.originalImageView.frame = rect;
+        self.originalImageView.center = CGPointMake(self.view.frame.size.width/2 , self.view.frame.size.height/2);
+        self.originalImageView.image = chosenImage;
+        self.originalImageView.contentMode = UIViewContentModeScaleAspectFit;
+    }
+    
+    
+    
+//    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 150, 100)];
+//    imageView.image = self.image;
 //    
-//    // save it to the documents directory
-//    NSURL *fileURL = [self grabFileURL:@"video.mov"];
-//    NSData *movieData = [NSData dataWithContentsOfURL:chosenMovie];
-//    [movieData writeToURL:fileURL atomically:YES];
-//    
-//    // save it to the Camera Roll
-//    UISaveVideoAtPathToSavedPhotosAlbum([chosenMovie path], nil, nil, nil);
+//    CHTStickerView *stickerView = [[CHTStickerView alloc] initWithContentView:imageView];
+//    stickerView.center = self.view.center;
+//    stickerView.delegate = self;
+//    stickerView.outlineBorderColor = [UIColor blueColor];
+//    [stickerView setImage:[UIImage imageNamed:@"Close"] forHandler:CHTStickerViewHandlerClose];
+//    [stickerView setImage:[UIImage imageNamed:@"Rotate"] forHandler:CHTStickerViewHandlerRotate];
+//    [stickerView setImage:[UIImage imageNamed:@"Flip"] forHandler:CHTStickerViewHandlerFlip];
+//    [stickerView setHandlerSize:40];
+//    [self.view addSubview:stickerView];
     
     // and dismiss the picker
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (UIImage *)imageWithImage:(UIImage *)sourceImage scaledToWidth:(float)i_width
+{
+    float oldWidth = sourceImage.size.width;
+    float scaleFactor = i_width / oldWidth;
     
+    float newHeight = sourceImage.size.height * scaleFactor;
+    float newWidth = oldWidth * scaleFactor;
+    
+    UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight));
+    [sourceImage drawInRect:CGRectMake(0, 0, newWidth, newHeight)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
+#pragma mark - Navigation Button methods
+
+- (void)menuTapped:(id)sender
+{
+    NSLog(@"Menu tapped!!");
+    [self.slidingViewController anchorTopViewToRightAnimated:YES];
 }
 
 @end

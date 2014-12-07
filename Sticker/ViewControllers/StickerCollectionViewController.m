@@ -23,6 +23,7 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor colorWithRed:255/255.0f green:173/255.0f blue:31/255.0f alpha:1.0f];
+    [[Helper sharedHelper] hideHUD];
 }
 
 - (void)didReceiveMemoryWarning {

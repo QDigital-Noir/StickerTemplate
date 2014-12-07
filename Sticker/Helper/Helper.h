@@ -18,6 +18,6 @@
                         andGuesture:(UIPanGestureRecognizer *)transitionPanGesture;
 - (NSArray *)getStickerCategory;
 - (NSArray *)getStickerListWithKey:(NSString *)key;
-- (void)showHUD;
+- (void)showHUDWithView:(UIView *)view;
 - (void)hideHUD;
 @end
