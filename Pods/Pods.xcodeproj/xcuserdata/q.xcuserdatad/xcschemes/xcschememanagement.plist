@@ -39,6 +39,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-PQFCustomLoaders.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -64,6 +69,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-UIColor+FlatColors.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -72,67 +82,77 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1F223E62406F7B39A5AC33B1</key>
+		<key>05DE23F04F9A24E5B61AF1CE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2DFEF31AE97545359E114BF2</key>
+		<key>18C437999058E8317C3DAC91</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5E50E65AB3D057DD111EFB64</key>
+		<key>30EFAE46745F91B71BB87E8D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5EF2BE4CB6772249852E1F39</key>
+		<key>4A224538AE275EBB4229E224</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6DFE463E72252AEE99FFFB82</key>
+		<key>4BB197FA5CA9317485F285D1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>921CD285B4281860AC506EFA</key>
+		<key>50550B92D08CD5E392FC4009</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9C9CD859DFDA1D74ECC138C9</key>
+		<key>63922385793B1833DD4E5D05</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9D18BD9700F0B5E95687A2D9</key>
+		<key>77C511F0544E2AAFAC597159</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9DC5779CB9C2D9C35E795AB5</key>
+		<key>890816231A1F6D45385DC72E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BFC3BA70E0E157C91BC7F375</key>
+		<key>9C572E81F5DEC75E7A3F39E9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C906E614312F7910FE4AC9DA</key>
+		<key>9DDAADA8C508A7BBF727ACE4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D0DF32E35FE2F25B7123D3AB</key>
+		<key>BFEB17814E97B8EF153461E2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EC23198B0191A7454B20B7EF</key>
+		<key>F24A0566B97DF8A21CBF0D7C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F47E5F596DFB04311BF2062F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC52C351C4674ACBD2F201B1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

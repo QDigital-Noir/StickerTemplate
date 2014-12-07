@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1046A42B1A24BCFD005B3E29 /* StickerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1046A42A1A24BCFD005B3E29 /* StickerCollectionViewController.m */; };
-		1046A42F1A24BF15005B3E29 /* StickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1046A42E1A24BF15005B3E29 /* StickerCollectionViewCell.m */; };
 		1046A4321A24C1D6005B3E29 /* StickerList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1046A4311A24C1D6005B3E29 /* StickerList.plist */; };
-		1083EC141A2484DD00534CBB /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1083EC131A2484DD00534CBB /* MenuViewController.m */; };
+		106484B31A344BD200CA21D3 /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 106484B01A344BD200CA21D3 /* MenuTableViewCell.m */; };
+		106484B41A344BD200CA21D3 /* StickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 106484B21A344BD200CA21D3 /* StickerCollectionViewCell.m */; };
+		106484BB1A344BF400CA21D3 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 106484B61A344BF400CA21D3 /* MenuViewController.m */; };
+		106484BC1A344BF400CA21D3 /* StickerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 106484B81A344BF400CA21D3 /* StickerCollectionViewController.m */; };
+		106484BD1A344BF400CA21D3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 106484BA1A344BF400CA21D3 /* ViewController.m */; };
 		1083EC1A1A24864600534CBB /* BPDynamicTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1083EC171A24864600534CBB /* BPDynamicTransition.m */; };
 		1083EC1B1A24864600534CBB /* BPTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1083EC191A24864600534CBB /* BPTransition.m */; };
 		1083EC1F1A24877400534CBB /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1083EC1E1A24877400534CBB /* Helper.m */; };
-		1097915C1A2605FA00FBB307 /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1097915B1A2605FA00FBB307 /* MenuTableViewCell.m */; };
 		10BE1C6D1A2200BA003A9A88 /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BE1C6C1A2200BA003A9A88 /* IAPHelper.m */; };
 		10BE1C6F1A2206BD003A9A88 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BE1C6E1A2206BD003A9A88 /* StoreKit.framework */; };
 		10E52B9E1A21BD3D00D82814 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E52B9D1A21BD3D00D82814 /* main.m */; };
 		10E52BA11A21BD3D00D82814 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E52BA01A21BD3D00D82814 /* AppDelegate.m */; };
-		10E52BA41A21BD3D00D82814 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E52BA31A21BD3D00D82814 /* ViewController.m */; };
 		10E52BA71A21BD3D00D82814 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10E52BA51A21BD3D00D82814 /* Main.storyboard */; };
 		10E52BA91A21BD3D00D82814 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10E52BA81A21BD3D00D82814 /* Images.xcassets */; };
 		10E52BAC1A21BD3D00D82814 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10E52BAA1A21BD3D00D82814 /* LaunchScreen.xib */; };
@@ -38,13 +38,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1046A4291A24BCFD005B3E29 /* StickerCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickerCollectionViewController.h; sourceTree = "<group>"; };
-		1046A42A1A24BCFD005B3E29 /* StickerCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickerCollectionViewController.m; sourceTree = "<group>"; };
-		1046A42D1A24BF15005B3E29 /* StickerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickerCollectionViewCell.h; sourceTree = "<group>"; };
-		1046A42E1A24BF15005B3E29 /* StickerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickerCollectionViewCell.m; sourceTree = "<group>"; };
 		1046A4311A24C1D6005B3E29 /* StickerList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StickerList.plist; sourceTree = "<group>"; };
-		1083EC121A2484DD00534CBB /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
-		1083EC131A2484DD00534CBB /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		106484AF1A344BD200CA21D3 /* MenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewCell.h; sourceTree = "<group>"; };
+		106484B01A344BD200CA21D3 /* MenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewCell.m; sourceTree = "<group>"; };
+		106484B11A344BD200CA21D3 /* StickerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickerCollectionViewCell.h; sourceTree = "<group>"; };
+		106484B21A344BD200CA21D3 /* StickerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickerCollectionViewCell.m; sourceTree = "<group>"; };
+		106484B51A344BF400CA21D3 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		106484B61A344BF400CA21D3 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		106484B71A344BF400CA21D3 /* StickerCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickerCollectionViewController.h; sourceTree = "<group>"; };
+		106484B81A344BF400CA21D3 /* StickerCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickerCollectionViewController.m; sourceTree = "<group>"; };
+		106484B91A344BF400CA21D3 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		106484BA1A344BF400CA21D3 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1083EC161A24864600534CBB /* BPDynamicTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPDynamicTransition.h; sourceTree = "<group>"; };
 		1083EC171A24864600534CBB /* BPDynamicTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPDynamicTransition.m; sourceTree = "<group>"; };
 		1083EC181A24864600534CBB /* BPTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPTransition.h; sourceTree = "<group>"; };
@@ -52,8 +56,6 @@
 		1083EC1C1A2486E600534CBB /* Sticker-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Sticker-Prefix.pch"; sourceTree = "<group>"; };
 		1083EC1D1A24877400534CBB /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
 		1083EC1E1A24877400534CBB /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
-		1097915A1A2605FA00FBB307 /* MenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewCell.h; sourceTree = "<group>"; };
-		1097915B1A2605FA00FBB307 /* MenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewCell.m; sourceTree = "<group>"; };
 		10BE1C6B1A2200BA003A9A88 /* IAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
 		10BE1C6C1A2200BA003A9A88 /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
 		10BE1C6E1A2206BD003A9A88 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -62,8 +64,6 @@
 		10E52B9D1A21BD3D00D82814 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		10E52B9F1A21BD3D00D82814 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		10E52BA01A21BD3D00D82814 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		10E52BA21A21BD3D00D82814 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		10E52BA31A21BD3D00D82814 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		10E52BA61A21BD3D00D82814 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		10E52BA81A21BD3D00D82814 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		10E52BAB1A21BD3D00D82814 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -98,10 +98,10 @@
 		1046A42C1A24BED3005B3E29 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				1046A42D1A24BF15005B3E29 /* StickerCollectionViewCell.h */,
-				1046A42E1A24BF15005B3E29 /* StickerCollectionViewCell.m */,
-				1097915A1A2605FA00FBB307 /* MenuTableViewCell.h */,
-				1097915B1A2605FA00FBB307 /* MenuTableViewCell.m */,
+				106484AF1A344BD200CA21D3 /* MenuTableViewCell.h */,
+				106484B01A344BD200CA21D3 /* MenuTableViewCell.m */,
+				106484B11A344BD200CA21D3 /* StickerCollectionViewCell.h */,
+				106484B21A344BD200CA21D3 /* StickerCollectionViewCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -117,11 +117,13 @@
 		10566DE31A239656004E668A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				106484B51A344BF400CA21D3 /* MenuViewController.h */,
+				106484B61A344BF400CA21D3 /* MenuViewController.m */,
+				106484B71A344BF400CA21D3 /* StickerCollectionViewController.h */,
+				106484B81A344BF400CA21D3 /* StickerCollectionViewController.m */,
+				106484B91A344BF400CA21D3 /* ViewController.h */,
+				106484BA1A344BF400CA21D3 /* ViewController.m */,
 				1046A42C1A24BED3005B3E29 /* Cells */,
-				1083EC121A2484DD00534CBB /* MenuViewController.h */,
-				1083EC131A2484DD00534CBB /* MenuViewController.m */,
-				1046A4291A24BCFD005B3E29 /* StickerCollectionViewController.h */,
-				1046A42A1A24BCFD005B3E29 /* StickerCollectionViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -177,8 +179,6 @@
 				10BE1C671A21FF97003A9A88 /* Helper */,
 				10E52B9F1A21BD3D00D82814 /* AppDelegate.h */,
 				10E52BA01A21BD3D00D82814 /* AppDelegate.m */,
-				10E52BA21A21BD3D00D82814 /* ViewController.h */,
-				10E52BA31A21BD3D00D82814 /* ViewController.m */,
 				10E52BA51A21BD3D00D82814 /* Main.storyboard */,
 				10E52BA81A21BD3D00D82814 /* Images.xcassets */,
 				10E52BAA1A21BD3D00D82814 /* LaunchScreen.xib */,
@@ -369,16 +369,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				1083EC1B1A24864600534CBB /* BPTransition.m in Sources */,
-				1046A42B1A24BCFD005B3E29 /* StickerCollectionViewController.m in Sources */,
-				1046A42F1A24BF15005B3E29 /* StickerCollectionViewCell.m in Sources */,
+				106484BB1A344BF400CA21D3 /* MenuViewController.m in Sources */,
 				10BE1C6D1A2200BA003A9A88 /* IAPHelper.m in Sources */,
-				10E52BA41A21BD3D00D82814 /* ViewController.m in Sources */,
 				1083EC1F1A24877400534CBB /* Helper.m in Sources */,
+				106484B41A344BD200CA21D3 /* StickerCollectionViewCell.m in Sources */,
+				106484BD1A344BF400CA21D3 /* ViewController.m in Sources */,
 				1083EC1A1A24864600534CBB /* BPDynamicTransition.m in Sources */,
-				1097915C1A2605FA00FBB307 /* MenuTableViewCell.m in Sources */,
 				10E52BA11A21BD3D00D82814 /* AppDelegate.m in Sources */,
+				106484B31A344BD200CA21D3 /* MenuTableViewCell.m in Sources */,
+				106484BC1A344BF400CA21D3 /* StickerCollectionViewController.m in Sources */,
 				10E52B9E1A21BD3D00D82814 /* main.m in Sources */,
-				1083EC141A2484DD00534CBB /* MenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

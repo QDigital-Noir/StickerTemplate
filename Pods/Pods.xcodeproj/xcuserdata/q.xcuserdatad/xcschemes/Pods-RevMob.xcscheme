@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5EF2BE4CB6772249852E1F39"
+               BlueprintIdentifier = "63922385793B1833DD4E5D05"
                BuildableName = "libPods-RevMob.a"
                BlueprintName = "Pods-RevMob"
                ReferencedContainer = "container:Pods.xcodeproj">

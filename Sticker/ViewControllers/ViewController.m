@@ -10,7 +10,7 @@
 #import "BPDynamicTransition.h"
 #import "BPTransition.h"
 
-@interface ViewController () <ECSlidingViewControllerDelegate, UINavigationControllerDelegate>
+@interface ViewController () <ECSlidingViewControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (nonatomic, strong) BPTransition *transitions;
 @property (nonatomic, strong) UIPanGestureRecognizer *dynamicTransitionPanGesture;
 @property (nonatomic, strong) CHTStickerView *selectedView;
@@ -61,6 +61,11 @@
                                             withECSliderVC:self.slidingViewController
                                                andGuesture:self.dynamicTransitionPanGesture];
     self.slidingViewController.panGesture.enabled = YES;
+    
+    PQFBouncingBalls *bouncingBalls = [[PQFBouncingBalls alloc] initLoaderOnView:self.view];
+    bouncingBalls.backgroundColor = [UIColor colorWithWhite:0.2 alpha:0.5];
+    bouncingBalls.center = CGPointMake(self.view.frame.size.width/2, (self.view.frame.size.height/2) - 64);
+    [bouncingBalls show];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -119,34 +124,56 @@
     self.selectedView = stickerView;
 }
 
-/*
-- (void)createImagePicker {
+- (void)openImagePicker
+{
     
-    imagePicker = [[UIImagePickerController alloc] init];
-    imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    
-    imagePicker.mediaTypes = [NSArray arrayWithObject:@"public.movie"];
-    imagePicker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModeVideo;
-    
-    imagePicker.allowsEditing = NO;
-    imagePicker.showsCameraControls = NO;
-    
-    // transform preview to full screen
-    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
-    
-    // iOS is going to calculate a size which constrains the 4:3 aspect ratio
-    // to the screen size. We're basically mimicking that here to determine
-    // what size the system will likely display the image at on screen.
-    // NOTE: screenSize.width may seem odd in this calculation - but, remember,
-    // the devices only take 4:3 images when they are oriented *sideways*.
-    float cameraAspectRatio = 4.0 / 3.0;
-    float imageWidth = floorf(screenSize.width * cameraAspectRatio);
-    float scale = ceilf((screenSize.height / imageWidth) * 10.0) / 10.0;
-    
-    imagePicker.cameraViewTransform = CGAffineTransformMakeScale(scale, scale);
-    
-    imagePicker.delegate = self;
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        
+        UIImagePickerController *picker = [[UIImagePickerController alloc]init];
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        picker.delegate = self;
+        picker.allowsEditing = NO;
+        
+        NSArray *mediaTypes = [[NSArray alloc]initWithObjects:(NSString *)kUTTypeImage, nil];
+        
+        picker.mediaTypes = mediaTypes;
+        
+        [self presentViewController:picker animated:YES completion:nil];
+        
+    }
+    else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:nil message:@"I'm afraid there's no camera on this device!" delegate:nil cancelButtonTitle:@"Dang!" otherButtonTitles:nil, nil];
+        [alertView show];
+    }
 }
- */
+
+#pragma mark - UIImagePickerController Delegate
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    // user hit cancel
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    
+//    // grab our movie URL
+//    NSURL *chosenMovie = [info objectForKey:UIImagePickerControllerMediaURL];
+//    
+//    // save it to the documents directory
+//    NSURL *fileURL = [self grabFileURL:@"video.mov"];
+//    NSData *movieData = [NSData dataWithContentsOfURL:chosenMovie];
+//    [movieData writeToURL:fileURL atomically:YES];
+//    
+//    // save it to the Camera Roll
+//    UISaveVideoAtPathToSavedPhotosAlbum([chosenMovie path], nil, nil, nil);
+    
+    // and dismiss the picker
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
 
 @end

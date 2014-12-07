@@ -18,6 +18,9 @@
     #import "UIViewController+ECSlidingViewController.h"
     #import "Helper.h"
     #import <SDWebImage/UIImageView+WebCache.h>
+    #import "PQFCustomLoaders.h"
+    #import <UIColor+FlatColors.h>
+    #import <MobileCoreServices/UTCoreTypes.h>
 
 #define IS_IOS_AT_LEAST(ver)    ([[[UIDevice currentDevice] systemVersion] compare:ver] != NSOrderedAscending)
 #define AppDelegateAccessor ((WMAppDelegate *)[[UIApplication sharedApplication] delegate])
