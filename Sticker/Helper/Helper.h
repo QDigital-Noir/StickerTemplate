@@ -11,7 +11,6 @@
 #import "BPTransition.h"
 
 @interface Helper : NSObject
-
 + (instancetype)sharedHelper;
 - (void)setupRevealWithNavigationVC:(UINavigationController *)navVC
                      withTransition:(BPTransition *)transitions
@@ -19,4 +18,6 @@
                         andGuesture:(UIPanGestureRecognizer *)transitionPanGesture;
 - (NSArray *)getStickerCategory;
 - (NSArray *)getStickerListWithKey:(NSString *)key;
+- (void)showHUD;
+- (void)hideHUD;
 @end

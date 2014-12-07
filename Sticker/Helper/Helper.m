@@ -8,6 +8,12 @@
 
 #import "Helper.h"
 
+@interface Helper ()
+
+@property (nonatomic, strong) PQFBouncingBalls *bouncingBalls;
+
+@end
+
 @implementation Helper
 
 + (instancetype)sharedHelper
@@ -65,6 +71,23 @@
     NSDictionary *dictRoot = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"StickerList" ofType:@"plist"]];
     
     return (NSArray *)[dictRoot objectForKey:key];
+}
+
+#pragma mark - HUD
+
+- (void)showHUD
+{
+    UIWindow *mainWindow = [[[UIApplication sharedApplication] delegate] window];
+    
+    self.bouncingBalls = [[PQFBouncingBalls alloc] initLoaderOnView:mainWindow];
+    self.bouncingBalls.backgroundColor = [UIColor colorWithWhite:0.2 alpha:0.0];
+    self.bouncingBalls.center = CGPointMake(mainWindow.frame.size.width/2, (mainWindow.frame.size.height/2));
+    [self.bouncingBalls show];
+}
+
+- (void)hideHUD
+{
+    [self.bouncingBalls remove];
 }
 
 @end

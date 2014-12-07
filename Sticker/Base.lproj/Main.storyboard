@@ -83,7 +83,6 @@
         <!--Navigation Controller-->
         <scene sceneID="1P1-3a-MYZ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PSL-Yw-Jjc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="ViewController" automaticallyAdjustsScrollViewInsets="NO" id="cBa-fk-gqm" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems/>
@@ -97,6 +96,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="BIG-GY-YkC"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PSL-Yw-Jjc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1505" y="357"/>
         </scene>

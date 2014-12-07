@@ -19,41 +19,14 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
-    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) self.edgesForExtendedLayout = UIRectEdgeNone;
-    
-    // Test
-    UIView *testView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 100)];
-    testView.backgroundColor = [UIColor redColor];
-    
-    CHTStickerView *stickerView = [[CHTStickerView alloc] initWithContentView:testView];
-    stickerView.center = self.view.center;
-    stickerView.delegate = self;
-    stickerView.outlineBorderColor = [UIColor blueColor];
-    [stickerView setImage:[UIImage imageNamed:@"Close"] forHandler:CHTStickerViewHandlerClose];
-    [stickerView setImage:[UIImage imageNamed:@"Rotate"] forHandler:CHTStickerViewHandlerRotate];
-    [stickerView setImage:[UIImage imageNamed:@"Flip"] forHandler:CHTStickerViewHandlerFlip];
-    [stickerView setHandlerSize:40];
-    [self.view addSubview:stickerView];
-    
-    UILabel *testLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
-    testLabel.text = @"Test Label";
-    testLabel.textAlignment = NSTextAlignmentCenter;
-    
-    CHTStickerView *stickerView2 = [[CHTStickerView alloc] initWithContentView:testLabel];
-    stickerView2.center = CGPointMake(100, 100);
-    stickerView2.delegate = self;
-    [stickerView2 setImage:[UIImage imageNamed:@"Close"] forHandler:CHTStickerViewHandlerClose];
-    [stickerView2 setImage:[UIImage imageNamed:@"Rotate"] forHandler:CHTStickerViewHandlerRotate];
-    stickerView2.showEditingHandlers = NO;
-    [self.view addSubview:stickerView2];
-    
-    self.selectedView = stickerView;
-    
-    self.navigationController.navigationBarHidden = NO;
-    
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
     
     // Setup Reveal
     [[Helper sharedHelper] setupRevealWithNavigationVC:self.navigationController
@@ -61,14 +34,12 @@
                                             withECSliderVC:self.slidingViewController
                                                andGuesture:self.dynamicTransitionPanGesture];
     self.slidingViewController.panGesture.enabled = YES;
-    
-    PQFBouncingBalls *bouncingBalls = [[PQFBouncingBalls alloc] initLoaderOnView:self.view];
-    bouncingBalls.backgroundColor = [UIColor colorWithWhite:0.2 alpha:0.5];
-    bouncingBalls.center = CGPointMake(self.view.frame.size.width/2, (self.view.frame.size.height/2) - 64);
-    [bouncingBalls show];
+    [self setupScreen];
+    [[Helper sharedHelper] showHUD];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -124,6 +95,8 @@
     self.selectedView = stickerView;
 }
 
+#pragma mark - Main Functions
+
 - (void)openImagePicker
 {
     
@@ -147,6 +120,52 @@
         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:nil message:@"I'm afraid there's no camera on this device!" delegate:nil cancelButtonTitle:@"Dang!" otherButtonTitles:nil, nil];
         [alertView show];
     }
+}
+
+- (void)setupScreen
+{
+    self.navigationController.title = @"Action Sticker Props";
+    
+    for (NSString* family in [UIFont familyNames])
+    {
+        NSLog(@"%@", family);
+        
+        for (NSString* name in [UIFont fontNamesForFamilyName: family])
+        {
+            NSLog(@"  %@", name);
+        }
+    }
+}
+
+- (void)test
+{
+    // Test
+    UIView *testView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 100)];
+    testView.backgroundColor = [UIColor redColor];
+    
+    CHTStickerView *stickerView = [[CHTStickerView alloc] initWithContentView:testView];
+    stickerView.center = self.view.center;
+    stickerView.delegate = self;
+    stickerView.outlineBorderColor = [UIColor blueColor];
+    [stickerView setImage:[UIImage imageNamed:@"Close"] forHandler:CHTStickerViewHandlerClose];
+    [stickerView setImage:[UIImage imageNamed:@"Rotate"] forHandler:CHTStickerViewHandlerRotate];
+    [stickerView setImage:[UIImage imageNamed:@"Flip"] forHandler:CHTStickerViewHandlerFlip];
+    [stickerView setHandlerSize:40];
+    [self.view addSubview:stickerView];
+    
+    UILabel *testLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
+    testLabel.text = @"Test Label";
+    testLabel.textAlignment = NSTextAlignmentCenter;
+    
+    CHTStickerView *stickerView2 = [[CHTStickerView alloc] initWithContentView:testLabel];
+    stickerView2.center = CGPointMake(100, 100);
+    stickerView2.delegate = self;
+    [stickerView2 setImage:[UIImage imageNamed:@"Close"] forHandler:CHTStickerViewHandlerClose];
+    [stickerView2 setImage:[UIImage imageNamed:@"Rotate"] forHandler:CHTStickerViewHandlerRotate];
+    stickerView2.showEditingHandlers = NO;
+    [self.view addSubview:stickerView2];
+    
+    self.selectedView = stickerView;
 }
 
 #pragma mark - UIImagePickerController Delegate
