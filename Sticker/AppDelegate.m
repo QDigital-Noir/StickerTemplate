@@ -43,10 +43,53 @@
     }
     
     // IAP
-    [PFPurchase addObserverForProduct:@"all" block:^(SKPaymentTransaction *transaction) {
+    //[PFPurchase restore];
+    [PFPurchase addObserverForProduct:@"com.intencemedia.moviefxstickers.unlockall"
+                                block:^(SKPaymentTransaction *transaction) {
         self.unlockedAll = YES;
+        NSLog(@"unlockedAll");
     }];
-    
+    [PFPurchase addObserverForProduct:@"com.intencemedia.moviefxstickers.animals"
+                                block:^(SKPaymentTransaction *transaction) {
+        self.unlockedAnimals = YES;
+        NSLog(@"unlockedAnimals");
+    }];
+    [PFPurchase addObserverForProduct:@"com.intencemedia.moviefxstickers.dinosaur"
+                                block:^(SKPaymentTransaction *transaction) {
+        self.unlockedDinosaur = YES;
+        NSLog(@"unlockedDinosaur");
+    }];
+    [PFPurchase addObserverForProduct:@"com.intencemedia.moviefxstickers.haunted"
+                                block:^(SKPaymentTransaction *transaction) {
+        self.unlockedHaunted = YES;
+        NSLog(@"unlockedHaunted");
+    }];
+    [PFPurchase addObserverForProduct:@"com.intencemedia.moviefxstickers.mothernature"
+                                block:^(SKPaymentTransaction *transaction) {
+        self.unlockedMotherNature = YES;
+        NSLog(@"unlockedMotherNature");
+    }];
+    [PFPurchase addObserverForProduct:@"com.intencemedia.moviefxstickers.scifi"
+                                block:^(SKPaymentTransaction *transaction) {
+        self.unlockedSciFi = YES;
+        NSLog(@"unlockedSciFi");
+    }];
+    [PFPurchase addObserverForProduct:@"com.intencemedia.moviefxstickers.seacreatures"
+                                block:^(SKPaymentTransaction *transaction) {
+        self.unlockedSeaCreatures = YES;
+        NSLog(@"unlockedSeaCreatures");
+    }];
+    [PFPurchase addObserverForProduct:@"com.intencemedia.moviefxstickers.war"
+                                block:^(SKPaymentTransaction *transaction) {
+        self.unlockedWar = YES;
+        NSLog(@"unlockedWar");
+    }];
+    [PFPurchase addObserverForProduct:@"com.intencemedia.moviefxstickers.zombie"
+                                block:^(SKPaymentTransaction *transaction) {
+        self.unlockedZombie = YES;
+        NSLog(@"unlockedZombie");
+    }];
+
     
     NSShadow *shadow = [[NSShadow alloc] init];
     shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];

@@ -11,10 +11,13 @@
 #import "BPTransition.h"
 
 @interface ViewController () <ECSlidingViewControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+{
+    
+}
+
 @property (nonatomic, strong) BPTransition *transitions;
 @property (nonatomic, strong) UIPanGestureRecognizer *dynamicTransitionPanGesture;
 @property (nonatomic, strong) CHTStickerView *selectedView;
-@property (nonatomic, strong) UIImage *stickerImage;
 @property (nonatomic, strong) UIImageView *originalImageView;
 @property (nonatomic, strong) UIImageView *stickerImageView;
 
@@ -38,6 +41,51 @@
                                                andGuesture:self.dynamicTransitionPanGesture];
     self.slidingViewController.panGesture.enabled = YES;
     [self setupScreen];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    CGSize stickerSize = CGSizeMake(AppDelegateAccessor.stickerImage.size.width, AppDelegateAccessor.stickerImage.size.height);
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, stickerSize.width, stickerSize.height)];
+    imageView.image = AppDelegateAccessor.stickerImage;
+
+    CHTStickerView *stickerView = [[CHTStickerView alloc] initWithContentView:imageView];
+    stickerView.center = self.view.center;
+    stickerView.delegate = self;
+    stickerView.outlineBorderColor = [UIColor blueColor];
+    [stickerView setImage:[UIImage imageNamed:@"Close"] forHandler:CHTStickerViewHandlerClose];
+    [stickerView setImage:[UIImage imageNamed:@"Rotate"] forHandler:CHTStickerViewHandlerRotate];
+    [stickerView setImage:[UIImage imageNamed:@"Flip"] forHandler:CHTStickerViewHandlerFlip];
+    [stickerView setHandlerSize:40];
+    [self.view addSubview:stickerView];
+    
+    
+//    UIImage *bottomImage = self.originalImageView.image;
+//    
+//    
+//    float oldWidth = self.view.frame.size.width;
+//    float scaleFactor = 280 / oldWidth;
+//    
+//    float newHeight = self.view.frame.size.height * scaleFactor;
+//    float newWidth = oldWidth * scaleFactor;
+//    
+//    CGSize newSize = CGSizeMake(newWidth, newHeight);
+//    UIGraphicsBeginImageContext(newSize);
+//    
+//    // Use existing opacity as is
+//    [bottomImage drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+//    
+//    // Apply supplied opacity if applicable
+//    [AppDelegateAccessor.stickerImage drawInRect:CGRectMake(0, 0, newSize.width, newSize.height) blendMode:kCGBlendModeNormal alpha:0.8];
+//    
+//    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+//    
+//    UIGraphicsEndImageContext();
+//    
+//    self.originalImageView.image = newImage;
 }
 
 - (void)didReceiveMemoryWarning
@@ -102,11 +150,11 @@
 - (void)openImagePicker
 {
     
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
     {
         
         UIImagePickerController *picker = [[UIImagePickerController alloc]init];
-        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         picker.delegate = self;
         picker.allowsEditing = NO;
         
@@ -224,7 +272,7 @@
         self.originalImageView.frame = rect;
         self.originalImageView.center = CGPointMake(self.view.frame.size.width/2 , self.view.frame.size.height/2);
         self.originalImageView.image = chosenImage;
-        self.originalImageView.contentMode = UIViewContentModeScaleAspectFit;
+        self.originalImageView.contentMode = UIViewContentModeScaleAspectFill;
     }
     else
     {
@@ -242,23 +290,8 @@
         self.originalImageView.frame = rect;
         self.originalImageView.center = CGPointMake(self.view.frame.size.width/2 , self.view.frame.size.height/2);
         self.originalImageView.image = chosenImage;
-        self.originalImageView.contentMode = UIViewContentModeScaleAspectFit;
+        self.originalImageView.contentMode = UIViewContentModeScaleAspectFill;
     }
-    
-    
-    
-//    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 150, 100)];
-//    imageView.image = self.image;
-//    
-//    CHTStickerView *stickerView = [[CHTStickerView alloc] initWithContentView:imageView];
-//    stickerView.center = self.view.center;
-//    stickerView.delegate = self;
-//    stickerView.outlineBorderColor = [UIColor blueColor];
-//    [stickerView setImage:[UIImage imageNamed:@"Close"] forHandler:CHTStickerViewHandlerClose];
-//    [stickerView setImage:[UIImage imageNamed:@"Rotate"] forHandler:CHTStickerViewHandlerRotate];
-//    [stickerView setImage:[UIImage imageNamed:@"Flip"] forHandler:CHTStickerViewHandlerFlip];
-//    [stickerView setHandlerSize:40];
-//    [self.view addSubview:stickerView];
     
     // and dismiss the picker
     [self dismissViewControllerAnimated:YES completion:nil];

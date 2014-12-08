@@ -98,6 +98,19 @@
     [self.slidingViewController resetTopViewAnimated:NO onComplete:^{
         [self.slidingViewController.topViewController.navigationController pushViewController:stickerCollectionVC animated:YES];
     }];
+    
+    
+//    [PFPurchase buyProduct:@"com.intencemedia.moviefxstickers.unlockall" block:^(NSError *error) {
+//        if (!error)
+//        {
+//            // Run UI logic that informs user the product has been purchased, such as displaying an alert view.
+//            NSLog(@"IAP Success");
+//        }
+//        else
+//        {
+//            NSLog(@"IAP Error : %@", error.localizedDescription);
+//        }
+//    }];
 }
 
 @end

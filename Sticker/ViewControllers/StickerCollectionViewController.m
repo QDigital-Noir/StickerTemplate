@@ -52,13 +52,15 @@
 {
     static NSString *identifier = @"Cell";
     StickerCollectionViewCell *cell = (StickerCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    [cell setImageWithURL:self.stickerArray[indexPath.row][@"ThumbURL"]];
+    [cell setImageWithURL:self.stickerArray[indexPath.row][@"URL"]];
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    StickerCollectionViewCell *cell = (StickerCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    AppDelegateAccessor.stickerImage = cell.imageView.image;
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - UIAlertViewDelegate
