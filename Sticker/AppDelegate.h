@@ -20,6 +20,7 @@
 @property (nonatomic, assign) BOOL unlockedSeaCreatures;
 @property (nonatomic, assign) BOOL unlockedWar;
 @property (nonatomic, assign) BOOL unlockedZombie;
+@property (nonatomic, assign) BOOL isFromStickers;
 @property (nonatomic, strong) UIImage *stickerImage;
 
 

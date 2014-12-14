@@ -690,9 +690,9 @@
 		</dict>
 		<dict>
 			<key>URL</key>
-			<string>http://moviefx.s3.amazonaws.com/zombies/zombie_2_thumb.jpg</string>
-			<key>ThumbURL</key>
 			<string>http://moviefx.s3.amazonaws.com/zombies/zombie_2.png</string>
+			<key>ThumbURL</key>
+			<string>http://moviefx.s3.amazonaws.com/zombies/zombie_2_thumb.jpg</string>
 			<key>isPaid</key>
 			<false/>
 		</dict>

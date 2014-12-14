@@ -19,14 +19,16 @@
 
 @implementation StickerCollectionViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor colorWithRed:255/255.0f green:173/255.0f blue:31/255.0f alpha:1.0f];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Portrait"]];
     [[Helper sharedHelper] hideHUD];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -60,6 +62,7 @@
 {
     StickerCollectionViewCell *cell = (StickerCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
     AppDelegateAccessor.stickerImage = cell.imageView.image;
+    AppDelegateAccessor.isFromStickers = YES;
     [self.navigationController popViewControllerAnimated:YES];
 }
 

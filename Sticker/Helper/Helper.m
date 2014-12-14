@@ -88,4 +88,101 @@
     [self.bouncingBalls remove];
 }
 
+/*
+ for (NSString* family in [UIFont familyNames])
+ {
+ NSLog(@"%@", family);
+ 
+ for (NSString* name in [UIFont fontNamesForFamilyName: family])
+ {
+ NSLog(@"  %@", name);
+ }
+ }
+ 
+ #pragma mark - Image Helper
+ 
+ - (UIImage *)imageByScalingProportionallyToSize:(CGSize)targetSize andImage:(UIImage *)sourceImage
+ {
+ UIImage *newImage = nil;
+ 
+ CGSize imageSize = sourceImage.size;
+ CGFloat width = imageSize.width;
+ CGFloat height = imageSize.height;
+ 
+ CGFloat targetWidth = targetSize.width;
+ CGFloat targetHeight = targetSize.height;
+ 
+ CGFloat scaleFactor = 0.0;
+ CGFloat scaledWidth = targetWidth;
+ CGFloat scaledHeight = targetHeight;
+ 
+ CGPoint thumbnailPoint = CGPointMake(0.0,0.0);
+ 
+ if (CGSizeEqualToSize(imageSize, targetSize) == NO) {
+ 
+ CGFloat widthFactor = targetWidth / width;
+ CGFloat heightFactor = targetHeight / height;
+ 
+ if (widthFactor < heightFactor)
+ scaleFactor = widthFactor;
+ else
+ scaleFactor = heightFactor;
+ 
+ scaledWidth  = width * scaleFactor;
+ scaledHeight = height * scaleFactor;
+ 
+ // center the image
+ 
+ if (widthFactor < heightFactor) {
+ thumbnailPoint.y = (targetHeight - scaledHeight) * 0.5;
+ } else if (widthFactor > heightFactor) {
+ thumbnailPoint.x = (targetWidth - scaledWidth) * 0.5;
+ }
+ }
+ 
+ 
+ // this is actually the interesting part:
+ 
+ UIGraphicsBeginImageContext(targetSize);
+ 
+ CGRect thumbnailRect = CGRectZero;
+ thumbnailRect.origin = thumbnailPoint;
+ thumbnailRect.size.width  = scaledWidth;
+ thumbnailRect.size.height = scaledHeight;
+ 
+ [sourceImage drawInRect:thumbnailRect];
+ 
+ newImage = UIGraphicsGetImageFromCurrentImageContext();
+ UIGraphicsEndImageContext();
+ 
+ if(newImage == nil) NSLog(@"could not scale image");
+ 
+ 
+ return newImage ;
+ }
+ 
+ - (UIImage *)mergeImage:(UIImage *)bottomImg withImage:(UIImage *)topImg withSize:(CGSize)size
+ {
+ UIImage *scaledTopImg = [self imageByScalingProportionallyToSize:size andImage:topImg];
+ 
+ UIGraphicsBeginImageContext(scaledTopImg.size);
+ CGContextRef ctx = UIGraphicsGetCurrentContext();
+ CGContextTranslateCTM(ctx, scaledTopImg.size.width * 0.5f, scaledTopImg.size.height  * 0.5f);
+ CGFloat angle = atan2(self.originalImageView.transform.b, self.originalImageView.transform.a);
+ CGContextRotateCTM(ctx, angle);
+ [scaledTopImg drawInRect:CGRectMake(- scaledTopImg.size.width * 0.5f, -(scaledTopImg.size.height  * 0.5f), scaledTopImg.size.width, scaledTopImg.size.height)];
+ UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+ UIGraphicsEndImageContext();
+ 
+ UIGraphicsBeginImageContext(bottomImg.size);
+//    [bottomImg drawInRect:CGRectMake(0, 0, bottomImg.size.width, bottomImg.size.height)];
+[newImage drawInRect:CGRectMake(_selectedView.frame.origin.x, _selectedView.frame.origin.y, newImage.size.width, newImage.size.height) blendMode:kCGBlendModeNormal alpha:1.0];
+UIImage *newImage2 = UIGraphicsGetImageFromCurrentImageContext();
+UIGraphicsEndImageContext();
+
+return newImage2;
+}
+
+ */
+
 @end

@@ -22,6 +22,10 @@
     #import <UIColor+FlatColors.h>
     #import <MobileCoreServices/UTCoreTypes.h>
     #import "AppDelegate.h"
+    #import "FCVerticalMenuItem.h"
+    #import <MessageUI/MessageUI.h>
+    #import <RevMobAds/RevMobAds.h>
+    #import <FacebookSDK/FacebookSDK.h>
 
 #define IS_IOS_AT_LEAST(ver)    ([[[UIDevice currentDevice] systemVersion] compare:ver] != NSOrderedAscending)
 #define AppDelegateAccessor ((AppDelegate *)[[UIApplication sharedApplication] delegate])
