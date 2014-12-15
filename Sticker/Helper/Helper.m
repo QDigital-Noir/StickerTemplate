@@ -73,6 +73,13 @@
     return (NSArray *)[dictRoot objectForKey:key];
 }
 
+- (NSString *)getClientKeyWithKey:(NSString *)key
+{
+    NSDictionary *dictRoot = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"plist"]];
+    
+    return dictRoot[key];
+}
+
 #pragma mark - HUD
 
 - (void)showHUDWithView:(UIView *)view

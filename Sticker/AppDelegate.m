@@ -19,9 +19,20 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    // Parse Settings
-    [Parse setApplicationId:@"4o1l5ZUnS9dZJyTeFo1g44v1OcbcnaypPxz8u3zx"
-                  clientKey:@"QiGOdEoURy0Ey5MV0dKkm0t4nvx9hRzQbefIWH0y"];
+    // Flurry
+    //note: iOS only allows one crash reporting tool per app; if using another, set to: NO
+    [Flurry setCrashReportingEnabled:YES];
+    
+    // Replace YOUR_API_KEY with the api key in the downloaded package
+    [Flurry startSession:[[Helper sharedHelper] getClientKeyWithKey:flurryKey]];
+    
+    //Ads
+    [RevMobAds startSessionWithAppID:[[Helper sharedHelper] getClientKeyWithKey:revmobKey]];
+    [RevMobAds session].testingMode = RevMobAdsTestingModeOff;
+    
+    // Parse
+    [Parse setApplicationId:[[Helper sharedHelper] getClientKeyWithKey:parseAppID]
+                  clientKey:[[Helper sharedHelper] getClientKeyWithKey:parseClientKey]];
     
     // Register for Push Notitications, if running iOS 8
     if ([application respondsToSelector:@selector(registerUserNotificationSettings:)])

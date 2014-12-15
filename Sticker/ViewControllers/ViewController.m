@@ -14,6 +14,7 @@
 @interface ViewController () <ECSlidingViewControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, FCVerticalMenuDelegate, UIDocumentInteractionControllerDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, RevMobAdsDelegate, UIAlertViewDelegate>
 {
     UIImage *img;
+    RevMobFullscreen *fullScreen;
 }
 
 @property (nonatomic, strong) BPTransition *transitions;
@@ -25,6 +26,7 @@
 @property (nonatomic, strong) FCVerticalMenu *verticalMenu;
 @property (nonatomic, retain) UIDocumentInteractionController *instagramDict;
 @property (nonatomic, strong) UIButton *cameraButton;
+@property (nonatomic, strong) AMPopTip *popTip;
 
 @end
 
@@ -64,9 +66,9 @@
         stickerView.center = CGPointMake(self.originalImageView.frame.size.width/2, self.originalImageView.frame.size.height/2);
         stickerView.delegate = self;
         stickerView.outlineBorderColor = [UIColor whiteColor];
-        [stickerView setImage:[UIImage imageNamed:@"Close"] forHandler:CHTStickerViewHandlerClose];
-        [stickerView setImage:[UIImage imageNamed:@"Rotate"] forHandler:CHTStickerViewHandlerRotate];
-        [stickerView setImage:[UIImage imageNamed:@"Flip"] forHandler:CHTStickerViewHandlerFlip];
+        [stickerView setImage:[UIImage imageNamed:@"close"] forHandler:CHTStickerViewHandlerClose];
+        [stickerView setImage:[UIImage imageNamed:@"move"] forHandler:CHTStickerViewHandlerRotate];
+        [stickerView setImage:[UIImage imageNamed:@"flip"] forHandler:CHTStickerViewHandlerFlip];
         [stickerView setHandlerSize:30];
         [self.originalImageView addSubview:stickerView];
         
@@ -149,7 +151,7 @@
 
 - (void)openImagePicker
 {
-    
+    [self.popTip hide];
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
     {
         
@@ -203,7 +205,7 @@
     self.originalImageView.backgroundColor = [UIColor clearColor];
     self.originalImageView.userInteractionEnabled = YES;
     [self.view addSubview:self.originalImageView];
-    
+
     self.cameraButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.cameraButton.backgroundColor = [UIColor clearColor];
     self.cameraButton.frame = CGRectMake(0, 0, 48, 48);
@@ -211,6 +213,25 @@
     [self.cameraButton setImage:[UIImage imageNamed:@"camera"] forState:UIControlStateNormal];
     [self.cameraButton addTarget:self action:@selector(openImagePicker) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.cameraButton];
+    
+    // Hint PopUp View
+    [[AMPopTip appearance] setFont:[UIFont fontWithName:@"Bangers-Regular" size:14]];
+    [[AMPopTip appearance] setTextColor:[UIColor whiteColor]];
+    
+    self.popTip = [AMPopTip popTip];
+    self.popTip.shouldDismissOnTap = YES;
+    self.popTip.edgeMargin = 5;
+    self.popTip.offset = 2;
+    self.popTip.edgeInsets = UIEdgeInsetsMake(0, 10, 0, 10);
+    self.popTip.tapHandler = ^{
+        NSLog(@"Tap!");
+    };
+    self.popTip.dismissHandler = ^{
+        NSLog(@"Dismiss!");
+    };
+    
+    self.popTip.popoverColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+    [self.popTip showText:@"Tap me to start!!" direction:AMPopTipDirectionUp maxWidth:200 inView:self.view fromFrame:self.cameraButton.frame];
 }
 
 //- (void)test
@@ -249,6 +270,7 @@
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     // user hit cancel
+    [self.popTip showText:@"Tap me to start!!" direction:AMPopTipDirectionUp maxWidth:200 inView:self.view fromFrame:self.cameraButton.frame];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -295,6 +317,9 @@
 - (void)stickerTapped:(id)sender
 {
     NSLog(@"sticker menu tapped!!");
+    
+    [self showAdsFullScreen];
+    
     [self.slidingViewController anchorTopViewToRightAnimated:YES];
 }
 
@@ -493,6 +518,16 @@
     
     // Remove the mail view
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - RevMob Full-Screen
+
+- (void)showAdsFullScreen
+{
+    fullScreen = [[RevMobAds session] fullscreen];
+    fullScreen.delegate = self;
+    [fullScreen loadAd];
+    [fullScreen showAd];
 }
 
 #pragma mark - RevMob Delegate

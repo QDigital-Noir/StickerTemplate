@@ -26,6 +26,9 @@
     #import <MessageUI/MessageUI.h>
     #import <RevMobAds/RevMobAds.h>
     #import <FacebookSDK/FacebookSDK.h>
+    #import "AMPopTip.h"
+    #import "TestFlight.h"
+    #import "Flurry.h"
 
 #define IS_IOS_AT_LEAST(ver)    ([[[UIDevice currentDevice] systemVersion] compare:ver] != NSOrderedAscending)
 #define AppDelegateAccessor ((AppDelegate *)[[UIApplication sharedApplication] delegate])
@@ -40,5 +43,12 @@
 #define kProductionParseClientKey "18DwWnTomLQ97oAZVpN92UjdC1M9vEgvfgz6fyA9"
 #define kUpdateProfileNotification "UPDATE_USER_PROFILE"
 #define kUpdateFavouriteBeer "UPDATE_FAVOURITE"
+
+static NSString *parseAppID = @"parseAppID";
+static NSString *parseClientKey = @"parseClientKey";
+static NSString *revmobKey = @"revmobKey";
+static NSString *flurryKey = @"flurryKey";
+static NSString *testflightKey = @"testflightKey";
+static NSString *crashlyticsKey = @"crashlyticsKey";
 
 #endif

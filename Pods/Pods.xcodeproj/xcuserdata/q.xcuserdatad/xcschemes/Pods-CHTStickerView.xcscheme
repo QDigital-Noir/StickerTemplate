@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A8E76E06BEFA5EA472590865"
+               BlueprintIdentifier = "5604EBDC8620E6CD42B4685D"
                BuildableName = "libPods-CHTStickerView.a"
                BlueprintName = "Pods-CHTStickerView"
                ReferencedContainer = "container:Pods.xcodeproj">

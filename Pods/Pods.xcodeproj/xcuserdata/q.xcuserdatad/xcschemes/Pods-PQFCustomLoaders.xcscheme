@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DFDAD9C85A7971D1E0A0F341"
+               BlueprintIdentifier = "66087B6F83EB8E364082F91A"
                BuildableName = "libPods-PQFCustomLoaders.a"
                BlueprintName = "Pods-PQFCustomLoaders"
                ReferencedContainer = "container:Pods.xcodeproj">

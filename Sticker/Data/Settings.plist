@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>parseAppID</key>
+	<string>YlljVdFZ6Y2csDfgJoekyg6btqeU62gmKZGHWAAU</string>
+	<key>revmobKey</key>
+	<string>548e7970e0ee87b309ca6c18</string>
+	<key>flurryKey</key>
+	<string>4MH84G7W4TV5H7G7Q3ZQ</string>
+	<key>testflightKey</key>
+	<string>2553ea8b-c586-4527-b71b-9800c072511a</string>
+	<key>parseClientKey</key>
+	<string>6TUBlDq7nks9pfDW9yqFXURVO9TOPziu0wKTwYq0</string>
+	<key>crashlyticsKey</key>
+	<string>6cef888a67b2dfb13971b13b469ef3cd1eb79cce</string>
+</dict>
+</plist>
