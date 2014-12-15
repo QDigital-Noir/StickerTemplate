@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import <Crashlytics/Crashlytics.h>
 
 @interface AppDelegate ()
 
@@ -18,6 +19,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // Crashlytics
+    [Crashlytics startWithAPIKey:@"6cef888a67b2dfb13971b13b469ef3cd1eb79cce"];
     
     // Flurry
     //note: iOS only allows one crash reporting tool per app; if using another, set to: NO
