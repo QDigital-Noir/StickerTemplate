@@ -19,6 +19,9 @@
 - (NSArray *)getStickerCategory;
 - (NSArray *)getStickerListWithKey:(NSString *)key;
 - (NSString *)getClientKeyWithKey:(NSString *)key;
+- (NSString *)getIAPIdentifierWithKey:(NSString *)key;
+- (void)updateUnlockedSticker:(BOOL)unlocked withKey:(NSString *)key;
+- (BOOL)getUnlockedStickerWithKey:(NSString *)key;
 - (void)showHUDWithView:(UIView *)view;
 - (void)hideHUD;
 @end

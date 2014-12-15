@@ -11,6 +11,7 @@
 @interface StickerCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
+@property (nonatomic, strong) IBOutlet UIImageView *lockedImageView;
 
-- (void)setImageWithURL:(NSString *)urlString;
+- (void)setImageWithURL:(NSString *)urlString andIsPaid:(BOOL)isPaid andCateName:(NSString *)cateName;
 @end

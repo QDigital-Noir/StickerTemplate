@@ -126,12 +126,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="1Da-Qf-JPs">
+                                            <rect key="frame" x="10" y="10" width="80" height="80"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="imageView" destination="1Q8-uD-zRK" id="kdb-w1-Xq9"/>
+                                    <outlet property="lockedImageView" destination="1Da-Qf-JPs" id="se7-WL-c4W"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -148,7 +153,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZFy-2g-d1Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1839.4666666666667" y="-345.5333333333333"/>
+            <point key="canvasLocation" x="1839" y="-346"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Yn5-O1-JN4">

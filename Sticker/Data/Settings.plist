@@ -12,6 +12,27 @@
 	<string>2553ea8b-c586-4527-b71b-9800c072511a</string>
 	<key>parseClientKey</key>
 	<string>6TUBlDq7nks9pfDW9yqFXURVO9TOPziu0wKTwYq0</string>
+	<key>IAP</key>
+	<dict>
+		<key>War</key>
+		<string>com.intencemedia.moviefxstickers.war</string>
+		<key>Sea Creatures</key>
+		<string>com.intencemedia.moviefxstickers.seacreatures</string>
+		<key>Sci-Fi</key>
+		<string>com.intencemedia.moviefxstickers.scifi</string>
+		<key>Mother Nature</key>
+		<string>com.intencemedia.moviefxstickers.mothernature</string>
+		<key>Zombie</key>
+		<string>com.intencemedia.moviefxstickers.zombie</string>
+		<key>Haunted</key>
+		<string>com.intencemedia.moviefxstickers.haunted</string>
+		<key>Dinosaur</key>
+		<string>com.intencemedia.moviefxstickers.dinosaur</string>
+		<key>Animals</key>
+		<string>com.intencemedia.moviefxstickers.animals</string>
+		<key>All</key>
+		<string>com.intencemedia.moviefxstickers.unlockall</string>
+	</dict>
 	<key>crashlyticsKey</key>
 	<string>6cef888a67b2dfb13971b13b469ef3cd1eb79cce</string>
 </dict>

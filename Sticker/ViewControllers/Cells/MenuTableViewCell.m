@@ -24,13 +24,12 @@
 
 - (void)setupCellLayoutWithCategoryName:(NSString *)cateName
 {
-    self.categoryTitle = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, self.frame.size.width, self.frame.size.height)];
-    self.categoryTitle.font = FONT_BOLD(20);
+    self.categoryTitle = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, self.frame.size.width, self.frame.size.height)];
+    self.categoryTitle.font = [UIFont fontWithName:@"Bangers-Regular" size:16];;
     self.categoryTitle.textColor = [UIColor blackColor];
     self.categoryTitle.textAlignment = NSTextAlignmentLeft;
     self.categoryTitle.text = cateName;
     self.backgroundColor = [UIColor clearColor];
-    
     [self.contentView addSubview:self.categoryTitle];
 }
 

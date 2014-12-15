@@ -37,6 +37,8 @@
 		10A0B6F21A3E9EAC00E0E60E /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 10A0B6EE1A3E9EAC00E0E60E /* close.png */; };
 		10A0B6F31A3E9EAC00E0E60E /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10A0B6EF1A3E9EAC00E0E60E /* close@2x.png */; };
 		10A0B6F51A3EAD4B00E0E60E /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10A0B6F41A3EAD4B00E0E60E /* Settings.plist */; };
+		10A0B6F81A3ECD0300E0E60E /* locked.png in Resources */ = {isa = PBXBuildFile; fileRef = 10A0B6F61A3ECD0300E0E60E /* locked.png */; };
+		10A0B6F91A3ECD0300E0E60E /* locked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10A0B6F71A3ECD0300E0E60E /* locked@2x.png */; };
 		10AF83701A36F35100D5D737 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 10AF83661A36F35100D5D737 /* facebook.png */; };
 		10AF83711A36F35100D5D737 /* facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10AF83671A36F35100D5D737 /* facebook@2x.png */; };
 		10AF83721A36F35100D5D737 /* instagram.png in Resources */ = {isa = PBXBuildFile; fileRef = 10AF83681A36F35100D5D737 /* instagram.png */; };
@@ -108,6 +110,8 @@
 		10A0B6EE1A3E9EAC00E0E60E /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		10A0B6EF1A3E9EAC00E0E60E /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
 		10A0B6F41A3EAD4B00E0E60E /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
+		10A0B6F61A3ECD0300E0E60E /* locked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locked.png; sourceTree = "<group>"; };
+		10A0B6F71A3ECD0300E0E60E /* locked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "locked@2x.png"; sourceTree = "<group>"; };
 		10AF83661A36F35100D5D737 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		10AF83671A36F35100D5D737 /* facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook@2x.png"; sourceTree = "<group>"; };
 		10AF83681A36F35100D5D737 /* instagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instagram.png; sourceTree = "<group>"; };
@@ -203,6 +207,8 @@
 		106484CA1A348A0000CA21D3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				10A0B6F61A3ECD0300E0E60E /* locked.png */,
+				10A0B6F71A3ECD0300E0E60E /* locked@2x.png */,
 				10A0B6EC1A3E9EAC00E0E60E /* flip.png */,
 				10A0B6ED1A3E9EAC00E0E60E /* flip@2x.png */,
 				10A0B6EE1A3E9EAC00E0E60E /* close.png */,
@@ -427,6 +433,7 @@
 				1046A4321A24C1D6005B3E29 /* StickerList.plist in Resources */,
 				10A0B6E71A3E931A00E0E60E /* menu@2x.png in Resources */,
 				10A0B6F01A3E9EAC00E0E60E /* flip.png in Resources */,
+				10A0B6F81A3ECD0300E0E60E /* locked.png in Resources */,
 				10AF83791A36F35100D5D737 /* delete@2x.png in Resources */,
 				10A0B6F51A3EAD4B00E0E60E /* Settings.plist in Resources */,
 				10A0B6E61A3E931A00E0E60E /* menu.png in Resources */,
@@ -439,6 +446,7 @@
 				10E52BA91A21BD3D00D82814 /* Images.xcassets in Resources */,
 				10A0B6E31A3E91C800E0E60E /* camera@2x.png in Resources */,
 				10A0B6EA1A3E9C1700E0E60E /* move.png in Resources */,
+				10A0B6F91A3ECD0300E0E60E /* locked@2x.png in Resources */,
 				10A0B6EB1A3E9C1700E0E60E /* move@2x.png in Resources */,
 				10A060141A3493AD006DC430 /* Portrait@2x~iphone.png in Resources */,
 				10AF83721A36F35100D5D737 /* instagram.png in Resources */,

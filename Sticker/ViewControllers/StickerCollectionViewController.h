@@ -12,5 +12,6 @@
 
 @property (nonatomic, strong) IBOutlet UICollectionView  *stickerCollectionView;
 @property (nonatomic, strong) NSArray *stickerArray;
+@property (nonatomic, strong) NSString *cateName;
 
 @end

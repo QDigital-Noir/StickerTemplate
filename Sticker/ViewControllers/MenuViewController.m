@@ -58,13 +58,20 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    return self.categoryArray.count;
+    if (section == 0)
+    {
+        return 2;
+    }
+    else
+    {
+        return self.categoryArray.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
@@ -77,7 +84,14 @@
         cell = [[MenuTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
-    [self configureCell:cell forRowAtIndexPath:indexPath];
+    if (indexPath.section == 0)
+    {
+        [self configureMenuCell:cell forRowAtIndexPath:indexPath];
+    }
+    else
+    {
+        [self configureCell:cell forRowAtIndexPath:indexPath];
+    }
     
     return cell;
 }
@@ -88,29 +102,85 @@
     [cell setupCellLayoutWithCategoryName:self.categoryArray[indexPath.row]];
 }
 
+- (void)configureMenuCell:(MenuTableViewCell *)cell
+    forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0)
+    {
+        [cell setupCellLayoutWithCategoryName:@"Unlock All & Remove Ads"];
+    }
+    else
+    {
+        [cell setupCellLayoutWithCategoryName:@"Restore All"];
+    }
+}
+
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    StickerCollectionViewController *stickerCollectionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"StickerCollectionViewController"];
-    stickerCollectionVC.stickerArray = [[Helper sharedHelper] getStickerListWithKey:self.categoryArray[indexPath.row]];
+    if (indexPath.section == 0)
+    {
+        if (indexPath.row == 0)
+        {
+            NSLog(@"Unlock All Tapped");
+            [PFPurchase buyProduct:@"com.intencemedia.moviefxstickers.unlockall" block:^(NSError *error) {
+                if (!error)
+                {
+                    // Run UI logic that informs user the product has been purchased, such as displaying an alert view.
+                    NSLog(@"Unlock All Success");
+                }
+                else
+                {
+                    NSLog(@"IAP Error : %@", error.localizedDescription);
+                }
+            }];
+        }
+        else
+        {
+            NSLog(@"Restore Tapped");
+            [PFPurchase restore];
+        }
+    }
+    else
+    {
+        StickerCollectionViewController *stickerCollectionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"StickerCollectionViewController"];
+        stickerCollectionVC.stickerArray = [[Helper sharedHelper] getStickerListWithKey:self.categoryArray[indexPath.row]];
+        stickerCollectionVC.cateName = self.categoryArray[indexPath.row];
+        
+        [self.slidingViewController resetTopViewAnimated:NO onComplete:^{
+            [self.slidingViewController.topViewController.navigationController pushViewController:stickerCollectionVC animated:YES];
+        }];
+    }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.menuTableView.frame.size.width, 40)];
+    headerView.backgroundColor = [UIColor blackColor];
     
-    [self.slidingViewController resetTopViewAnimated:NO onComplete:^{
-        [self.slidingViewController.topViewController.navigationController pushViewController:stickerCollectionVC animated:YES];
-    }];
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, self.menuTableView.frame.size.width, 40)];
+    title.backgroundColor = [UIColor blackColor];
+    title.font = [UIFont fontWithName:@"Bangers-Regular" size:16];
+    title.textColor = [UIColor whiteColor];
+    title.textAlignment = NSTextAlignmentLeft;
+    [headerView addSubview:title];
     
+    if (section == 0)
+    {
+        title.text = @"Unlock & Restore";
+    }
+    else
+    {
+        title.text = @"Stickers";
+    }
     
-//    [PFPurchase buyProduct:@"com.intencemedia.moviefxstickers.unlockall" block:^(NSError *error) {
-//        if (!error)
-//        {
-//            // Run UI logic that informs user the product has been purchased, such as displaying an alert view.
-//            NSLog(@"IAP Success");
-//        }
-//        else
-//        {
-//            NSLog(@"IAP Error : %@", error.localizedDescription);
-//        }
-//    }];
+    return headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 40.0f;
 }
 
 @end

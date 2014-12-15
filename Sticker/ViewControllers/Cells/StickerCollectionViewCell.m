@@ -10,30 +10,33 @@
 
 @implementation StickerCollectionViewCell
 
-- (void)setImageWithURL:(NSString *)urlString
+- (void)setImageWithURL:(NSString *)urlString andIsPaid:(BOOL)isPaid andCateName:(NSString *)cateName
 {
-    /*
-    NSURL *url = [NSURL URLWithString:urlString];
-    __weak typeof(self) weakSelf = self;
-    
-    [self.imageView setImageWithURL:url
-                   placeholderImage:[UIImage imageNamed:@"placeholder.png"]
-                            options:SDWebImageCacheMemoryOnly
-                           progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-                               // Add indicator
-                               [weakSelf.progressView setHidden:NO];
-                               [weakSelf.progressView setProgress:(float)receivedSize/expectedSize animated:NO];
-                               
-                           } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                               [weakSelf performSelector:@selector(reset) withObject:nil afterDelay:0.5];
-                               NSLog(@"cacheType : %d", cacheType);
-                           }];
-     */
-    
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:urlString]
                       placeholderImage:[UIImage imageNamed:@"placeholder"]
                                options:SDWebImageRefreshCached];
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    BOOL isUnlock = [[Helper sharedHelper] getUnlockedStickerWithKey:cateName];
+    BOOL isUnlockAll = [[Helper sharedHelper] getUnlockedStickerWithKey:@"All"];
+    if (isUnlock || isUnlockAll)
+    {
+        NSLog(@"No overlay");
+    }
+    else
+    {
+        if (isPaid)
+        {
+            self.lockedImageView.backgroundColor = [UIColor clearColor];
+            self.lockedImageView.image = [UIImage imageNamed:@"locked"];
+            self.lockedImageView.alpha = 0.6;
+        }
+    }
+}
+
+- (void)prepareForReuse
+{
+    self.lockedImageView.image = nil;
 }
 
 @end

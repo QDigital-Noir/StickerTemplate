@@ -318,7 +318,15 @@
 {
     NSLog(@"sticker menu tapped!!");
     
-    [self showAdsFullScreen];
+    if ([[Helper sharedHelper] getUnlockedStickerWithKey:@"All"])
+    {
+        NSLog(@"YESSS");
+    }
+    else
+    {
+        NSLog(@"NOOOO");
+        [self showAdsFullScreen];
+    }
     
     [self.slidingViewController anchorTopViewToRightAnimated:YES];
 }

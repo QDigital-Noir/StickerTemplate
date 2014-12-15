@@ -62,7 +62,7 @@
     // Read plist from bundle and get Root Dictionary out of it
     NSDictionary *dictRoot = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"StickerList" ofType:@"plist"]];
 
-    return [dictRoot allKeys];
+    return [[dictRoot allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
 }
 
 - (NSArray *)getStickerListWithKey:(NSString *)key
@@ -78,6 +78,29 @@
     NSDictionary *dictRoot = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"plist"]];
     
     return dictRoot[key];
+}
+
+- (NSString *)getIAPIdentifierWithKey:(NSString *)key
+{
+    NSDictionary *dictRoot = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"plist"]];
+    
+    return dictRoot[@"IAP"][key];
+}
+
+#pragma mark - Update user default
+
+- (void)updateUnlockedSticker:(BOOL)unlocked withKey:(NSString *)key
+{
+    NSUserDefaults *appDefault = [NSUserDefaults standardUserDefaults];
+    [appDefault setObject:[NSNumber numberWithBool:unlocked] forKey:key];
+    [appDefault synchronize];
+}
+
+- (BOOL)getUnlockedStickerWithKey:(NSString *)key
+{
+    NSUserDefaults *appDefault = [NSUserDefaults standardUserDefaults];
+    BOOL isUnlock = [[appDefault objectForKey:key] boolValue];
+    return isUnlock;
 }
 
 #pragma mark - HUD
