@@ -26,6 +26,10 @@
 		10A060131A3493AD006DC430 /* Portrait-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 10A0600F1A3493AD006DC430 /* Portrait-568h@2x~iphone.png */; };
 		10A060141A3493AD006DC430 /* Portrait@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 10A060101A3493AD006DC430 /* Portrait@2x~iphone.png */; };
 		10A060161A34996D006DC430 /* menu_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10A060151A34996D006DC430 /* menu_icon@2x.png */; };
+		10A0B6E21A3E91C800E0E60E /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 10A0B6E01A3E91C800E0E60E /* camera.png */; };
+		10A0B6E31A3E91C800E0E60E /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10A0B6E11A3E91C800E0E60E /* camera@2x.png */; };
+		10A0B6E61A3E931A00E0E60E /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 10A0B6E41A3E931A00E0E60E /* menu.png */; };
+		10A0B6E71A3E931A00E0E60E /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10A0B6E51A3E931A00E0E60E /* menu@2x.png */; };
 		10AF83701A36F35100D5D737 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 10AF83661A36F35100D5D737 /* facebook.png */; };
 		10AF83711A36F35100D5D737 /* facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10AF83671A36F35100D5D737 /* facebook@2x.png */; };
 		10AF83721A36F35100D5D737 /* instagram.png in Resources */ = {isa = PBXBuildFile; fileRef = 10AF83681A36F35100D5D737 /* instagram.png */; };
@@ -86,6 +90,10 @@
 		10A0600F1A3493AD006DC430 /* Portrait-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Portrait-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		10A060101A3493AD006DC430 /* Portrait@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Portrait@2x~iphone.png"; sourceTree = "<group>"; };
 		10A060151A34996D006DC430 /* menu_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_icon@2x.png"; sourceTree = "<group>"; };
+		10A0B6E01A3E91C800E0E60E /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
+		10A0B6E11A3E91C800E0E60E /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@2x.png"; sourceTree = "<group>"; };
+		10A0B6E41A3E931A00E0E60E /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		10A0B6E51A3E931A00E0E60E /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
 		10AF83661A36F35100D5D737 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		10AF83671A36F35100D5D737 /* facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook@2x.png"; sourceTree = "<group>"; };
 		10AF83681A36F35100D5D737 /* instagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instagram.png; sourceTree = "<group>"; };
@@ -180,6 +188,10 @@
 		106484CA1A348A0000CA21D3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				10A0B6E41A3E931A00E0E60E /* menu.png */,
+				10A0B6E51A3E931A00E0E60E /* menu@2x.png */,
+				10A0B6E01A3E91C800E0E60E /* camera.png */,
+				10A0B6E11A3E91C800E0E60E /* camera@2x.png */,
 				1029B0411A3D9AD400D8ECA6 /* mail.png */,
 				1029B0421A3D9AD400D8ECA6 /* mail@2x.png */,
 				1029B0431A3D9AD400D8ECA6 /* message.png */,
@@ -392,7 +404,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1046A4321A24C1D6005B3E29 /* StickerList.plist in Resources */,
+				10A0B6E71A3E931A00E0E60E /* menu@2x.png in Resources */,
 				10AF83791A36F35100D5D737 /* delete@2x.png in Resources */,
+				10A0B6E61A3E931A00E0E60E /* menu.png in Resources */,
 				1029B0451A3D9AD400D8ECA6 /* mail.png in Resources */,
 				10E52BA71A21BD3D00D82814 /* Main.storyboard in Resources */,
 				10AF83771A36F35100D5D737 /* twitter@2x.png in Resources */,
@@ -400,11 +414,13 @@
 				10E52BAC1A21BD3D00D82814 /* LaunchScreen.xib in Resources */,
 				10AF83701A36F35100D5D737 /* facebook.png in Resources */,
 				10E52BA91A21BD3D00D82814 /* Images.xcassets in Resources */,
+				10A0B6E31A3E91C800E0E60E /* camera@2x.png in Resources */,
 				10A060141A3493AD006DC430 /* Portrait@2x~iphone.png in Resources */,
 				10AF83721A36F35100D5D737 /* instagram.png in Resources */,
 				10AF83751A36F35100D5D737 /* save@2x.png in Resources */,
 				106484C01A34581600CA21D3 /* Bangers.ttf in Resources */,
 				10A060111A3493AD006DC430 /* Portrait~ipad.png in Resources */,
+				10A0B6E21A3E91C800E0E60E /* camera.png in Resources */,
 				10AF83761A36F35100D5D737 /* twitter.png in Resources */,
 				10A060121A3493AD006DC430 /* Portrait@2x~ipad.png in Resources */,
 				10A060161A34996D006DC430 /* menu_icon@2x.png in Resources */,

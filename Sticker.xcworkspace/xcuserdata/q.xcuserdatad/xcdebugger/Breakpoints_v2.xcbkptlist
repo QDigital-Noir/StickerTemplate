@@ -24,11 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sticker/ViewControllers/ViewController.m"
-            timestampString = "440243494.526174"
+            timestampString = "440308147.170227"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "-viewWillAppear:"
             landmarkType = "5">
          </BreakpointContent>

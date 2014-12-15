@@ -101,6 +101,9 @@
                                                            shadow, NSShadowAttributeName,
                                                            [UIFont fontWithName:@"Bangers-Regular" size:21.0], NSFontAttributeName, nil]];
     
+    // Logs 'install' and 'app activate' App Events.
+    [FBAppEvents activateApp];
+    
     return YES;
 }
 

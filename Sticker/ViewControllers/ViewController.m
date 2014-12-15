@@ -23,6 +23,8 @@
 @property (nonatomic, strong) UIImageView *stickerImageView;
 @property (nonatomic, strong) UIImage *chosenImage;
 @property (nonatomic, strong) FCVerticalMenu *verticalMenu;
+@property (nonatomic, retain) UIDocumentInteractionController *instagramDict;
+@property (nonatomic, strong) UIButton *cameraButton;
 
 @end
 
@@ -50,8 +52,9 @@
 {
     [super viewWillAppear:animated];
     
-    if (AppDelegateAccessor.isFromStickers)
+    if (AppDelegateAccessor.isFromStickers && AppDelegateAccessor.stickerImage != nil)
     {
+        NSLog(@"Added sticker");
         CGSize stickerSize = CGSizeMake(AppDelegateAccessor.stickerImage.size.width, AppDelegateAccessor.stickerImage.size.height);
         
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, stickerSize.width/5, stickerSize.height/5)];
@@ -171,6 +174,9 @@
 
 - (void)setupScreen
 {
+    // Action Menu View
+    [self configVerticalView];
+    
     // Setup Navigation Bar Button
     UIButton *btnLeft = [UIButton buttonWithType:UIButtonTypeCustom];
     [btnLeft setFrame:CGRectMake(0, 0, 30, 30)];
@@ -183,7 +189,7 @@
     
     UIButton *btnRight = [UIButton buttonWithType:UIButtonTypeCustom];
     [btnRight setFrame:CGRectMake(0, 0, 30, 30)];
-    [btnRight setImage:[UIImage imageNamed:@"menu_icon"] forState:UIControlStateNormal];
+    [btnRight setImage:[UIImage imageNamed:@"menu"] forState:UIControlStateNormal];
     [btnRight addTarget:self action:@selector(menuTapped:) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *barBtnRight = [[UIBarButtonItem alloc] initWithCustomView:btnRight];
@@ -193,15 +199,18 @@
 
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Portrait"]];
     
-//    [self test];
-    
-    [self configVerticalView];
-    [self openImagePicker];
-    
     self.originalImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     self.originalImageView.backgroundColor = [UIColor clearColor];
     self.originalImageView.userInteractionEnabled = YES;
     [self.view addSubview:self.originalImageView];
+    
+    self.cameraButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.cameraButton.backgroundColor = [UIColor clearColor];
+    self.cameraButton.frame = CGRectMake(0, 0, 48, 48);
+    self.cameraButton.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height - 110);
+    [self.cameraButton setImage:[UIImage imageNamed:@"camera"] forState:UIControlStateNormal];
+    [self.cameraButton addTarget:self action:@selector(openImagePicker) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.cameraButton];
 }
 
 //- (void)test
@@ -296,6 +305,13 @@
         return [_verticalMenu dismissWithCompletionBlock:nil];
     }
     
+    UIGraphicsBeginImageContextWithOptions(self.originalImageView.bounds.size, self.originalImageView.opaque, 0.0);
+    [self.originalImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    img = newImage;
+    
     [self.verticalMenu showFromNavigationBar:self.slidingViewController.navigationController.navigationBar
                                       inView:self.view];
     NSLog(@"menu tapped!!");
@@ -308,14 +324,7 @@
     item1.actionBlock = ^{
         NSLog(@"Saved!!!");
         
-        UIGraphicsBeginImageContextWithOptions(self.originalImageView.bounds.size, self.originalImageView.opaque, 0.0);
-        [self.originalImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
-        UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        
-        img = newImage;
-        
-        UIImageWriteToSavedPhotosAlbum(newImage, nil, nil, nil);
+        UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
     };
     
     FCVerticalMenuItem *item2 = [[FCVerticalMenuItem alloc] initWithTitle:@"Facebook"
@@ -336,43 +345,54 @@
                                              }];
     };
     
-    FCVerticalMenuItem *item3 = [[FCVerticalMenuItem alloc] initWithTitle:@"Twitter"
-                                                             andIconImage:[UIImage imageNamed:@"twitter"]];
-    item3.actionBlock = ^{
-        NSLog(@"test element 3");
-    };
-    
-    FCVerticalMenuItem *item4 = [[FCVerticalMenuItem alloc] initWithTitle:@"Instagram"
+    FCVerticalMenuItem *item3 = [[FCVerticalMenuItem alloc] initWithTitle:@"Instagram"
                                                              andIconImage:[UIImage imageNamed:@"instagram"]];
-    item4.actionBlock = ^{
-        NSLog(@"test element 4");
+    item3.actionBlock = ^{
+        NSLog(@"Instagram");
+
+        NSString *imagePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/image.ig"];
+        [UIImageJPEGRepresentation(img, 1.0) writeToFile:imagePath atomically:YES];
+        
         NSURL *igImageHookupPath = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"file://%@", imagePath]];
-        self.dic.UTI = @"com.instagram.exclusivegram";
-        self.dic = [self setupControllerWithURL:igImageHookupPath usingDelegate:self];
-        self.dic = [UIDocumentInteractionController interactionControllerWithURL:igImageHookupPath];
-        [self.dic presentOpenInMenuFromRect:self.view.frame inView:self.view animated:YES];
+        self.instagramDict.UTI = @"com.instagram.exclusivegram";
+        self.instagramDict = [self setupControllerWithURL:igImageHookupPath usingDelegate:self];
+        self.instagramDict = [UIDocumentInteractionController interactionControllerWithURL:igImageHookupPath];
+        [self.instagramDict presentOpenInMenuFromRect:self.view.frame inView:self.view animated:YES];
     };
     
-    FCVerticalMenuItem *item5 = [[FCVerticalMenuItem alloc] initWithTitle:@"Email"
+    FCVerticalMenuItem *item4 = [[FCVerticalMenuItem alloc] initWithTitle:@"Email"
                                                              andIconImage:[UIImage imageNamed:@"mail"]];
-    item5.actionBlock = ^{
-        NSLog(@"test element 5");
+    item4.actionBlock = ^{
+        NSLog(@"Email");
+        [self openMail];
     };
     
-    FCVerticalMenuItem *item6 = [[FCVerticalMenuItem alloc] initWithTitle:@"Message"
+    FCVerticalMenuItem *item5 = [[FCVerticalMenuItem alloc] initWithTitle:@"Message"
                                                              andIconImage:[UIImage imageNamed:@"message"]];
-    item6.actionBlock = ^{
-        NSLog(@"test element 6");
+    item5.actionBlock = ^{
+        NSLog(@"Message");
+        [self openMessage];
     };
     
-    FCVerticalMenuItem *item7 = [[FCVerticalMenuItem alloc] initWithTitle:@"Reset All"
+    FCVerticalMenuItem *item6 = [[FCVerticalMenuItem alloc] initWithTitle:@"Reset All"
                                                              andIconImage:[UIImage imageNamed:@"delete"]];
-    item7.actionBlock = ^{
-        NSLog(@"test element 7");
+    item6.actionBlock = ^{
+        NSLog(@"Reset");
+        
+        for (UIView *subView in self.originalImageView.subviews)
+        {
+            if ([subView isKindOfClass:[CHTStickerView class]])
+            {
+                NSLog(@"Remove Sticker");
+                [subView removeFromSuperview];
+            }
+        }
+        
+        self.originalImageView.image = nil;
     };
     
     
-    self.verticalMenu = [[FCVerticalMenu alloc] initWithItems:@[item1, item2, item3, item4, item5, item6, item7]];
+    self.verticalMenu = [[FCVerticalMenu alloc] initWithItems:@[item1, item2, item3, item4, item5, item6]];
     self.verticalMenu.appearsBehindNavigationBar = NO;
     self.verticalMenu.liveBlurTintColor = [UIColor blackColor];
 }
@@ -385,11 +405,11 @@
     {
         UIImage *myImage = img;
         NSData *imageData = UIImagePNGRepresentation(myImage);
-        NSString *emailBody = @"Scary Photo Props";
+        NSString *emailBody = @"Movie Effect Stickers";
         
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
         mailer.mailComposeDelegate = self;
-        [mailer setSubject:@"Scary Photo Props"];
+        [mailer setSubject:@"Movie Effect Stickers"];
         [mailer addAttachmentData:imageData mimeType:@"image/png" fileName:@"ScaryPhotoProps"];
         [mailer setMessageBody:emailBody isHTML:NO];
         [self presentViewController:mailer animated:YES completion:nil];
@@ -408,9 +428,8 @@
 
 #pragma mark - MFMessageComposeViewController
 
-- (void)showSMS
+- (void)openMessage
 {
-    
     if(![MFMessageComposeViewController canSendText])
     {
         UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Your device doesn't support SMS!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -451,6 +470,31 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail cancelled: you cancelled the operation and no email message was queued.");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved: you saved the email message in the drafts folder.");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail send: the email message is queued in the outbox. It is ready to send.");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail failed: the email message was not saved or queued, possibly due to an error.");
+            break;
+        default:
+            NSLog(@"Mail not sent.");
+            break;
+    }
+    
+    // Remove the mail view
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark - RevMob Delegate
 
 - (void)revmobAdDidFailWithError:(NSError *)error
@@ -476,6 +520,16 @@
 - (void)revmobUserClickedInTheAd
 {
     NSLog(@"### REVMOB : User cliked in adds");
+}
+
+#pragma mark - UIDocumentInteraction Delegate
+
+- (UIDocumentInteractionController *)setupControllerWithURL:(NSURL *)fileURL usingDelegate:(id <UIDocumentInteractionControllerDelegate>)interactionDelegate
+{
+    UIDocumentInteractionController *interactionController = [UIDocumentInteractionController interactionControllerWithURL: fileURL];
+    interactionController.delegate = interactionDelegate;
+    
+    return interactionController;
 }
 
 @end

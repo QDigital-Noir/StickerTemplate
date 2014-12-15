@@ -27,6 +27,7 @@ static UIColor *SVProgressHUDBackgroundColor;
 static UIColor *SVProgressHUDForegroundColor;
 static CGFloat SVProgressHUDRingThickness;
 static UIFont *SVProgressHUDFont;
+static UIImage *SVProgressHUDInfoImage;
 static UIImage *SVProgressHUDSuccessImage;
 static UIImage *SVProgressHUDErrorImage;
 static SVProgressHUDMaskType SVProgressHUDDefaultMaskType;
@@ -108,6 +109,11 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
     SVProgressHUDRingThickness = width;
 }
 
++ (void)setInfoImage:(UIImage*)image{
+    [self sharedView];
+    SVProgressHUDInfoImage = image;
+}
+
 + (void)setSuccessImage:(UIImage *)image {
     [self sharedView];
     SVProgressHUDSuccessImage = image;
@@ -118,8 +124,7 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
     SVProgressHUDErrorImage = image;
 }
 
-+ (void)setDefaultMaskType:(SVProgressHUDMaskType)maskType
-{
++ (void)setDefaultMaskType:(SVProgressHUDMaskType)maskType{
     [self sharedView];
     SVProgressHUDDefaultMaskType = maskType;
 }
@@ -128,27 +133,33 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
 #pragma mark - Show Methods
 
 + (void)show {
-    [[self sharedView] showProgress:SVProgressHUDUndefinedProgress status:nil maskType:SVProgressHUDDefaultMaskType];
-}
-
-+ (void)showWithStatus:(NSString *)status {
-    [[self sharedView] showProgress:SVProgressHUDUndefinedProgress status:status maskType:SVProgressHUDDefaultMaskType];
+    [self showWithStatus:nil];
 }
 
 + (void)showWithMaskType:(SVProgressHUDMaskType)maskType {
-    [[self sharedView] showProgress:SVProgressHUDUndefinedProgress status:nil maskType:maskType];
+    [self showProgress:SVProgressHUDUndefinedProgress maskType:maskType];
+}
+
++ (void)showWithStatus:(NSString *)status {
+    [self showProgress:SVProgressHUDUndefinedProgress status:status];
 }
 
 + (void)showWithStatus:(NSString*)status maskType:(SVProgressHUDMaskType)maskType {
-    [[self sharedView] showProgress:SVProgressHUDUndefinedProgress status:status maskType:maskType];
+    [self showProgress:SVProgressHUDUndefinedProgress status:status maskType:maskType];
 }
 
 + (void)showProgress:(float)progress {
-    [[self sharedView] showProgress:progress status:nil maskType:SVProgressHUDDefaultMaskType];
+    [self sharedView];
+    [self showProgress:progress maskType:SVProgressHUDDefaultMaskType];
+}
+
++ (void)showProgress:(float)progress maskType:(SVProgressHUDMaskType)maskType{
+    [self showProgress:progress status:nil maskType:maskType];
 }
 
 + (void)showProgress:(float)progress status:(NSString *)status {
-    [[self sharedView] showProgress:progress status:status maskType:SVProgressHUDDefaultMaskType];
+    [self sharedView];
+    [self showProgress:progress status:status maskType:SVProgressHUDDefaultMaskType];
 }
 
 + (void)showProgress:(float)progress status:(NSString *)status maskType:(SVProgressHUDMaskType)maskType {
@@ -158,7 +169,18 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
 
 #pragma mark - Show then dismiss methods
 
++ (void)showInfoWithStatus:(NSString *)string {
+    [self sharedView];
+    [self showInfoWithStatus:string maskType:SVProgressHUDDefaultMaskType];
+}
+
++ (void)showInfoWithStatus:(NSString *)string maskType:(SVProgressHUDMaskType)maskType {
+    [self sharedView];
+    [self showImage:SVProgressHUDInfoImage status:string maskType:maskType];
+}
+
 + (void)showSuccessWithStatus:(NSString *)string {
+    [self sharedView];
     [self showSuccessWithStatus:string maskType:SVProgressHUDDefaultMaskType];
 }
 
@@ -168,6 +190,7 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
 }
 
 + (void)showErrorWithStatus:(NSString *)string {
+    [self sharedView];
     [self showErrorWithStatus:string maskType:SVProgressHUDDefaultMaskType];
 }
 
@@ -177,6 +200,7 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
 }
 
 + (void)showImage:(UIImage *)image status:(NSString *)string {
+    [self sharedView];
     [self showImage:image status:string maskType:SVProgressHUDDefaultMaskType];
 }
 
@@ -216,7 +240,6 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
 #pragma mark - Instance Methods
 
 - (id)initWithFrame:(CGRect)frame {
-
     if ((self = [super initWithFrame:frame])) {
 		self.userInteractionEnabled = NO;
         self.backgroundColor = [UIColor clearColor];
@@ -233,9 +256,11 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
             SVProgressHUDForegroundColor = [UIColor whiteColor];
         }
         if ([[UIImage class] instancesRespondToSelector:@selector(imageWithRenderingMode:)]) {
+            SVProgressHUDInfoImage = [[UIImage imageNamed:@"SVProgressHUD.bundle/info"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             SVProgressHUDSuccessImage = [[UIImage imageNamed:@"SVProgressHUD.bundle/success"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             SVProgressHUDErrorImage = [[UIImage imageNamed:@"SVProgressHUD.bundle/error"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         } else {
+            SVProgressHUDInfoImage = [UIImage imageNamed:@"SVProgressHUD.bundle/info"];
             SVProgressHUDSuccessImage = [UIImage imageNamed:@"SVProgressHUD.bundle/success"];
             SVProgressHUDErrorImage = [UIImage imageNamed:@"SVProgressHUD.bundle/error"];
         }
@@ -247,11 +272,9 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
 }
 
 - (void)drawRect:(CGRect)rect {
-    
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     switch (self.maskType) {
-            
         case SVProgressHUDMaskTypeBlack: {
             
             [[UIColor colorWithWhite:0 alpha:0.5] set];
@@ -259,7 +282,6 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
             
             break;
         }
-            
         case SVProgressHUDMaskTypeGradient: {
             
             size_t locationsCount = 2;
@@ -278,7 +300,6 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
             
             break;
         }
-            
         default:
             break;
     }
@@ -381,14 +402,12 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
 }
 
 - (void)setStatus:(NSString *)string {
-    
 	self.stringLabel.text = string;
     [self updatePosition];
     
 }
 
 - (void)setFadeOutTimer:(NSTimer *)newTimer {
-    
     if(_fadeOutTimer)
         [_fadeOutTimer invalidate], _fadeOutTimer = nil;
     
@@ -425,8 +444,7 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
 }
 
 
-- (NSDictionary *)notificationUserInfo
-{
+- (NSDictionary *)notificationUserInfo{
     return (self.stringLabel.text ? @{SVProgressHUDStatusUserInfoKey : self.stringLabel.text} : nil);
 }
 
@@ -517,11 +535,11 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
                             options:UIViewAnimationOptionAllowUserInteraction
                          animations:^{
                              [self moveToPoint:newCenter rotateAngle:rotateAngle];
-                             [self setNeedsDisplay];
+                             [self.hudView setNeedsDisplay];
                          } completion:NULL];
     } else {
         [self moveToPoint:newCenter rotateAngle:rotateAngle];
-        [self setNeedsDisplay];
+        [self.hudView setNeedsDisplay];
     }
     
 }
@@ -546,16 +564,18 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
 #pragma mark - Master show/dismiss methods
 
 - (void)showProgress:(float)progress status:(NSString*)string maskType:(SVProgressHUDMaskType)hudMaskType {
-    
     if(!self.overlayView.superview){
         NSEnumerator *frontToBackWindows = [UIApplication.sharedApplication.windows reverseObjectEnumerator];
-        UIScreen *mainScreen = UIScreen.mainScreen;
-        
-        for (UIWindow *window in frontToBackWindows)
-            if (window.screen == mainScreen && window.windowLevel == UIWindowLevelNormal) {
+        for (UIWindow *window in frontToBackWindows){
+            BOOL windowOnMainScreen = window.screen == UIScreen.mainScreen;
+            BOOL windowIsVisible = !window.hidden && window.alpha > 0;
+            BOOL windowLevelNormal = window.windowLevel == UIWindowLevelNormal;
+            
+            if (windowOnMainScreen && windowIsVisible && windowLevelNormal) {
                 [window addSubview:self.overlayView];
                 break;
             }
+        }
     } else {
         // Ensure that overlay will be exactly on top of rootViewController (which may be changed during runtime).
         [self.overlayView.superview bringSubviewToFront:self.overlayView];
@@ -639,7 +659,6 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
 }
 
 - (UIImage *)image:(UIImage *)image withTintColor:(UIColor *)color{
-    
     CGRect rect = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
     UIGraphicsBeginImageContextWithOptions(rect.size, NO, image.scale);
     CGContextRef c = UIGraphicsGetCurrentContext();
@@ -903,7 +922,6 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
 
 
 - (CGFloat)visibleKeyboardHeight {
-    
     UIWindow *keyboardWindow = nil;
     for (UIWindow *testWindow in [[UIApplication sharedApplication] windows]) {
         if(![[testWindow class] isEqual:[UIWindow class]]) {

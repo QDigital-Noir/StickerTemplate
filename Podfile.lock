@@ -23,6 +23,8 @@ PODS:
   - Bolts (1.1.3)
   - CHTStickerView (0.5)
   - ECSlidingViewController (2.0.3)
+  - Facebook-iOS-SDK (3.21.1):
+    - Bolts (~> 1.0)
   - FCVerticalMenu (0.1.2)
   - FlurrySDK (5.4.0):
     - FlurrySDK/FlurrySDK (= 5.4.0)
@@ -35,7 +37,7 @@ PODS:
   - SDWebImage (3.7.1):
     - SDWebImage/Core (= 3.7.1)
   - SDWebImage/Core (3.7.1)
-  - SVProgressHUD (HEAD based on 1.1)
+  - SVProgressHUD (HEAD based on 1.1.2)
   - TestFlightSDK (3.0.2)
   - UIColor+FlatColors (0.0.2)
 
@@ -43,6 +45,7 @@ DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - CHTStickerView (~> 0.5)
   - ECSlidingViewController (~> 2.0.3)
+  - Facebook-iOS-SDK (~> 3.21.1)
   - FCVerticalMenu
   - FlurrySDK (~> 5.4.0)
   - Parse (~> 1.5.0)
@@ -57,13 +60,14 @@ SPEC CHECKSUMS:
   Bolts: 3db0a875235e0c9042b013af13af0f00f79b102c
   CHTStickerView: 5194e965a47055fbf13eb7ddaf3e15275ac198b6
   ECSlidingViewController: e79fe856bfb1a99a39c995377a1943e50f7647eb
+  Facebook-iOS-SDK: 18c26e86ab25c17854a2ee2a8f60562099c6600f
   FCVerticalMenu: ced09cc93350b53b89a99eb82593e91ee67a923a
   FlurrySDK: bed9e5598353f867508d164795a451e3ada92cb6
   Parse: 7de25b6f70f0b233e5d25835f62eabfa91e4f9d7
   PQFCustomLoaders: 3f59916dce73c721a823a5bb21be28305329e775
   RevMob: 605b5c82b26643ecc40164524250b6cef004dc95
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
-  SVProgressHUD: 6e281683bfd31a22eb6a6401933f714c0b26fc63
+  SVProgressHUD: da7a49e789af645d9279ffbca62318945a832438
   TestFlightSDK: 0c24c533748d0d84bfe7a3cb6036fa79124d84ee
   UIColor+FlatColors: 15506ef6472e26a751033f2f2469283800bcb906
 
