@@ -279,7 +279,7 @@
     self.chosenImage = info[UIImagePickerControllerOriginalImage];
 
     float oldWidth = self.chosenImage.size.width;//self.view.frame.size.width;
-    float scaleFactor = 280 / oldWidth;
+    float scaleFactor = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)?(728 / oldWidth):(280 / oldWidth);
     
     float newHeight = self.chosenImage.size.height * scaleFactor;//self.view.frame.size.height * scaleFactor;
     float newWidth = oldWidth * scaleFactor;

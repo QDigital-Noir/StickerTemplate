@@ -404,6 +404,7 @@
 				TargetAttributes = {
 					10E52B971A21BD3D00D82814 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = UH5VVTMLZZ;
 					};
 					10E52BB01A21BD3D00D82814 = {
 						CreatedOnToolsVersion = 6.1;
