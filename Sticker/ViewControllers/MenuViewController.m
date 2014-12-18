@@ -33,11 +33,11 @@
     //Setup category menu.
     self.categoryArray = [NSMutableArray arrayWithArray:[[Helper sharedHelper] getStickerCategory]];
     
-//    //Setup table view.
-//    self.menuTableView = [[UITableView alloc] initWithFrame:self.view.frame];
-//    self.menuTableView.dataSource = self;
-//    self.menuTableView.delegate = self;
-//    [self.view addSubview:self.menuTableView];
+    //Setup table view.
+    if (!IS_IPHONE_5)
+    {
+        self.menuTableView.frame = CGRectMake(0, 0, self.view.frame.size.width, 480 - 64);
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,7 +66,7 @@
 {
     if (section == 0)
     {
-        return 2;
+        return 3;
     }
     else
     {
@@ -109,9 +109,13 @@
     {
         [cell setupCellLayoutWithCategoryName:@"Unlock All & Remove Ads"];
     }
-    else
+    else if (indexPath.row == 1)
     {
         [cell setupCellLayoutWithCategoryName:@"Restore All"];
+    }
+    else
+    {
+        [cell setupCellLayoutWithCategoryName:@"More App"];
     }
 }
 
@@ -136,10 +140,15 @@
                 }
             }];
         }
-        else
+        else if (indexPath.row == 1)
         {
             NSLog(@"Restore Tapped");
             [PFPurchase restore];
+        }
+        else
+        {
+            NSString *iTunesLink = @"https://itunes.apple.com/us/artist/intence-media/id592330573";
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
         }
     }
     else
