@@ -25,6 +25,15 @@
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Portrait"]];
     [[Helper sharedHelper] hideHUD];
+    
+    UIButton *btnRight = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btnRight setFrame:CGRectMake(0, 0, 30, 30)];
+    [btnRight setImage:[UIImage imageNamed:@"icon_reload"] forState:UIControlStateNormal];
+    [btnRight addTarget:self action:@selector(reloadTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *barBtnRight = [[UIBarButtonItem alloc] initWithCustomView:btnRight];
+    [barBtnRight setTintColor:[UIColor whiteColor]];
+    [self.navigationItem setRightBarButtonItem:barBtnRight];
 }
 
 - (void)didReceiveMemoryWarning
@@ -146,6 +155,13 @@
 - (IBAction)menuButtonTapped:(id)sender
 {
     [self.slidingViewController anchorTopViewToRightAnimated:YES];
+}
+
+#pragma mark - Button Action
+
+- (void)reloadTapped:(id)sender
+{
+    [self.stickerCollectionView reloadData];
 }
 
 
