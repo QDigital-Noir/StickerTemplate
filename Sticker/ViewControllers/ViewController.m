@@ -11,7 +11,7 @@
 #import "BPTransition.h"
 #import "FCVerticalMenu.h"
 
-@interface ViewController () <ECSlidingViewControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, FCVerticalMenuDelegate, UIDocumentInteractionControllerDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, RevMobAdsDelegate, UIAlertViewDelegate>
+@interface ViewController () <ECSlidingViewControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, FCVerticalMenuDelegate, UIDocumentInteractionControllerDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, RevMobAdsDelegate, UIAlertViewDelegate, UIActionSheetDelegate>
 {
     UIImage *img;
     RevMobFullscreen *fullScreen;
@@ -151,12 +151,29 @@
 
 - (void)openImagePicker
 {
+    NSString *actionSheetTitle = @"Select Source"; //Action Sheet Title
+    NSString *other1 = @"Camera";
+    NSString *other2 = @"Library";
+    NSString *cancelTitle = @"Cancel";
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:actionSheetTitle
+                                  delegate:self
+                                  cancelButtonTitle:cancelTitle
+                                  destructiveButtonTitle:nil
+                                  otherButtonTitles:other1, other2, nil];
+    
+    [actionSheet showInView:self.view];
+}
+
+- (void)openImagePickerWithSourceType:(UIImagePickerControllerSourceType)type
+{
     [self.popTip hide];
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+    if ([UIImagePickerController isSourceTypeAvailable:type])
     {
         
         UIImagePickerController *picker = [[UIImagePickerController alloc]init];
-        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        picker.sourceType = type;
         picker.delegate = self;
         picker.allowsEditing = NO;
         
@@ -165,7 +182,6 @@
         picker.mediaTypes = mediaTypes;
         
         [self presentViewController:picker animated:YES completion:nil];
-        
     }
     else
     {
@@ -233,37 +249,6 @@
     self.popTip.popoverColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
     [self.popTip showText:@"Tap me to start!!" direction:AMPopTipDirectionUp maxWidth:200 inView:self.view fromFrame:self.cameraButton.frame];
 }
-
-//- (void)test
-//{
-//    // Test
-//    UIView *testView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 100)];
-//    testView.backgroundColor = [UIColor redColor];
-//    
-//    CHTStickerView *stickerView = [[CHTStickerView alloc] initWithContentView:testView];
-//    stickerView.center = self.view.center;
-//    stickerView.delegate = self;
-//    stickerView.outlineBorderColor = [UIColor blueColor];
-//    [stickerView setImage:[UIImage imageNamed:@"Close"] forHandler:CHTStickerViewHandlerClose];
-//    [stickerView setImage:[UIImage imageNamed:@"Rotate"] forHandler:CHTStickerViewHandlerRotate];
-//    [stickerView setImage:[UIImage imageNamed:@"Flip"] forHandler:CHTStickerViewHandlerFlip];
-//    [stickerView setHandlerSize:40];
-//    [self.view addSubview:stickerView];
-//    
-//    UILabel *testLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
-//    testLabel.text = @"Test Label";
-//    testLabel.textAlignment = NSTextAlignmentCenter;
-//    
-//    CHTStickerView *stickerView2 = [[CHTStickerView alloc] initWithContentView:testLabel];
-//    stickerView2.center = CGPointMake(100, 100);
-//    stickerView2.delegate = self;
-//    [stickerView2 setImage:[UIImage imageNamed:@"Close"] forHandler:CHTStickerViewHandlerClose];
-//    [stickerView2 setImage:[UIImage imageNamed:@"Rotate"] forHandler:CHTStickerViewHandlerRotate];
-//    stickerView2.showEditingHandlers = NO;
-//    [self.view addSubview:stickerView2];
-//    
-//    self.selectedView = stickerView;
-//}
 
 #pragma mark - UIImagePickerController Delegate
 
@@ -574,5 +559,40 @@
     
     return interactionController;
 }
+
+#pragma mark - UIActionSheet Delegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
+    
+    if  ([buttonTitle isEqualToString:@"Camera"])
+    {
+        if (IS_IPAD)
+        {
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                [self openImagePickerWithSourceType:UIImagePickerControllerSourceTypeCamera];
+            }];
+        }
+        else
+        {
+            [self openImagePickerWithSourceType:UIImagePickerControllerSourceTypeCamera];
+        }
+    }
+    else if ([buttonTitle isEqualToString:@"Library"])
+    {
+        if (IS_IPAD)
+        {
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                [self openImagePickerWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+            }];
+        }
+        else
+        {
+            [self openImagePickerWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+        }
+    }
+}
+
 
 @end

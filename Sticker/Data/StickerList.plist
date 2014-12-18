@@ -448,7 +448,7 @@
 			<key>ThumbURL</key>
 			<string>http://moviefx.s3.amazonaws.com/scifi/paid/scifi_paid_12_thumb.jpg</string>
 			<key>isPaid</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>URL</key>
@@ -456,7 +456,7 @@
 			<key>ThumbURL</key>
 			<string>http://moviefx.s3.amazonaws.com/scifi/paid/scifi_paid_13_thumb.jpg</string>
 			<key>isPaid</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>URL</key>
@@ -464,7 +464,7 @@
 			<key>ThumbURL</key>
 			<string>http://moviefx.s3.amazonaws.com/scifi/paid/scifi_paid_14_thumb.jpg</string>
 			<key>isPaid</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>URL</key>
@@ -472,7 +472,7 @@
 			<key>ThumbURL</key>
 			<string>http://moviefx.s3.amazonaws.com/scifi/paid/scifi_paid_15_thumb.jpg</string>
 			<key>isPaid</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>URL</key>
@@ -480,7 +480,7 @@
 			<key>ThumbURL</key>
 			<string>http://moviefx.s3.amazonaws.com/scifi/paid/scifi_paid_16_thumb.jpg</string>
 			<key>isPaid</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>URL</key>
@@ -488,7 +488,7 @@
 			<key>ThumbURL</key>
 			<string>http://moviefx.s3.amazonaws.com/scifi/paid/scifi_paid_17_thumb.jpg</string>
 			<key>isPaid</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>URL</key>
@@ -496,7 +496,7 @@
 			<key>ThumbURL</key>
 			<string>http://moviefx.s3.amazonaws.com/scifi/paid/scifi_paid_18_thumb.jpg</string>
 			<key>isPaid</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>URL</key>
@@ -504,7 +504,7 @@
 			<key>ThumbURL</key>
 			<string>http://moviefx.s3.amazonaws.com/scifi/paid/scifi_paid_19_thumb.jpg</string>
 			<key>isPaid</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>URL</key>
@@ -512,7 +512,7 @@
 			<key>ThumbURL</key>
 			<string>http://moviefx.s3.amazonaws.com/scifi/paid/scifi_paid_20_thumb.jpg</string>
 			<key>isPaid</key>
-			<false/>
+			<true/>
 		</dict>
 	</array>
 	<key>Mother Nature</key>
