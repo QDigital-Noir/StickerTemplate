@@ -256,7 +256,7 @@
 {
     // user hit cancel
     [self.popTip showText:@"Tap me to start!!" direction:AMPopTipDirectionUp maxWidth:200 inView:self.view fromFrame:self.cameraButton.frame];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -279,7 +279,7 @@
     self.originalImageView.contentMode = UIViewContentModeScaleAspectFill;
     
     // and dismiss the picker
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (UIImage *)imageWithImage:(UIImage *)sourceImage scaledToWidth:(float)i_width
