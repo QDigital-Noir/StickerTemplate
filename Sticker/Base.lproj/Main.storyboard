@@ -8,6 +8,7 @@
         <!--Menu View Controller-->
         <scene sceneID="EhW-m1-VpO">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g2H-cU-TpG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="MenuViewController" id="dJ6-hc-5h0" customClass="MenuViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V9F-m3-SJV">
                         <rect key="frame" x="0.0" y="64" width="320" height="568"/>
@@ -40,7 +41,6 @@
                         <outlet property="menuTableView" destination="Jvp-yW-YWk" id="0b5-bu-hUe"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g2H-cU-TpG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="973" y="-346"/>
         </scene>

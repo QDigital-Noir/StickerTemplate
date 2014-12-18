@@ -38,6 +38,10 @@
     {
         self.menuTableView.frame = CGRectMake(0, 0, self.view.frame.size.width, 480 - 64);
     }
+    else if (IS_IPHONE_5)
+    {
+        self.menuTableView.frame = CGRectMake(0, 0, self.view.frame.size.width, 568 - 64);
+    }
 }
 
 - (void)didReceiveMemoryWarning {
