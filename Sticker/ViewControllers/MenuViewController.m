@@ -119,7 +119,7 @@
     }
     else
     {
-        [cell setupCellLayoutWithCategoryName:@"More App"];
+        [cell setupCellLayoutWithCategoryName:@"More Apps"];
     }
 }
 

@@ -276,10 +276,12 @@
     self.originalImageView.frame = rect;
     self.originalImageView.center = CGPointMake(self.view.frame.size.width/2 , self.view.frame.size.height/2);
     self.originalImageView.image = self.chosenImage;
-    self.originalImageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.originalImageView.contentMode = UIViewContentModeScaleToFill;
     
     // and dismiss the picker
     [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    self.cameraButton.hidden = YES;
 }
 
 - (UIImage *)imageWithImage:(UIImage *)sourceImage scaledToWidth:(float)i_width
@@ -334,6 +336,8 @@
                                       inView:self.view];
     NSLog(@"menu tapped!!");
 }
+
+#pragma mark - Vertical Menu
 
 - (void)configVerticalView
 {
@@ -407,6 +411,8 @@
         }
         
         self.originalImageView.image = nil;
+        self.cameraButton.hidden = NO;
+        [self.popTip showText:@"Tap me to start!!" direction:AMPopTipDirectionUp maxWidth:200 inView:self.view fromFrame:self.cameraButton.frame];
     };
     
     
