@@ -135,7 +135,7 @@
 		10BE1C6B1A2200BA003A9A88 /* IAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
 		10BE1C6C1A2200BA003A9A88 /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
 		10BE1C6E1A2206BD003A9A88 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		10E52B981A21BD3D00D82814 /* Sticker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sticker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		10E52B981A21BD3D00D82814 /* MovieFX Props.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MovieFX Props.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10E52B9C1A21BD3D00D82814 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10E52B9D1A21BD3D00D82814 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		10E52B9F1A21BD3D00D82814 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -293,7 +293,7 @@
 		10E52B991A21BD3D00D82814 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				10E52B981A21BD3D00D82814 /* Sticker.app */,
+				10E52B981A21BD3D00D82814 /* MovieFX Props.app */,
 				10E52BB11A21BD3D00D82814 /* StickerTests.xctest */,
 			);
 			name = Products;
@@ -384,7 +384,7 @@
 			);
 			name = Sticker;
 			productName = Sticker;
-			productReference = 10E52B981A21BD3D00D82814 /* Sticker.app */;
+			productReference = 10E52B981A21BD3D00D82814 /* MovieFX Props.app */;
 			productType = "com.apple.product-type.application";
 		};
 		10E52BB01A21BD3D00D82814 /* StickerTests */ = {
@@ -697,7 +697,7 @@
 				INFOPLIST_FILE = Sticker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "MovieFX Props";
 				PROVISIONING_PROFILE = "556fe642-a29e-4ab7-bb5c-96e845d95427";
 			};
 			name = Debug;
@@ -717,7 +717,7 @@
 				INFOPLIST_FILE = Sticker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "MovieFX Props";
 				PROVISIONING_PROFILE = "3a58227f-58d4-4749-9763-8a17acd6aa0b";
 			};
 			name = Release;
