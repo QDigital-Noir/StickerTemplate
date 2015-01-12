@@ -39,7 +39,6 @@ PODS:
     - SDWebImage/Core (= 3.7.1)
   - SDWebImage/Core (3.7.1)
   - SVProgressHUD (HEAD based on 1.1.2)
-  - TestFlightSDK (3.0.2)
   - UIColor+FlatColors (0.0.2)
 
 DEPENDENCIES:
@@ -55,7 +54,6 @@ DEPENDENCIES:
   - RevMob (~> 7.5.5)
   - SDWebImage (~> 3.7.1)
   - SVProgressHUD (HEAD)
-  - TestFlightSDK (~> 3.0.2)
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
@@ -71,7 +69,6 @@ SPEC CHECKSUMS:
   RevMob: 605b5c82b26643ecc40164524250b6cef004dc95
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   SVProgressHUD: da7a49e789af645d9279ffbca62318945a832438
-  TestFlightSDK: 0c24c533748d0d84bfe7a3cb6036fa79124d84ee
   UIColor+FlatColors: 15506ef6472e26a751033f2f2469283800bcb906
 
 COCOAPODS: 0.35.0

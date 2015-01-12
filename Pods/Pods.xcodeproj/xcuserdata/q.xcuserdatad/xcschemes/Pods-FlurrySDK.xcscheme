@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "56CF2D03EAF8864F265A4706"
+               BlueprintIdentifier = "B23AD701968723A90E394C6E"
                BuildableName = "libPods-FlurrySDK.a"
                BlueprintName = "Pods-FlurrySDK"
                ReferencedContainer = "container:Pods.xcodeproj">

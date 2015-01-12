@@ -441,15 +441,6 @@ A different license may apply to other resources included in this package,
 including Freepik Icons. Please consult their 
 respective headers for the terms of their individual licenses.
 
-## TestFlightSDK
-
-All text and design is copyright © 2010-2014 TestFlight App, Inc.
-
-All rights reserved.
-
-https://testflightapp.com/tos/
-
-
 ## UIColor+FlatColors
 
 The MIT License (MIT)
