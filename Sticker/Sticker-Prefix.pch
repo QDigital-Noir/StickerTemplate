@@ -27,7 +27,6 @@
     #import <RevMobAds/RevMobAds.h>
     #import <FacebookSDK/FacebookSDK.h>
     #import "AMPopTip.h"
-    #import "TestFlight.h"
     #import "Flurry.h"
 
 #define IS_IOS_AT_LEAST(ver)    ([[[UIDevice currentDevice] systemVersion] compare:ver] != NSOrderedAscending)
