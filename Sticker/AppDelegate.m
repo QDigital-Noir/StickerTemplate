@@ -64,6 +64,7 @@
         [[Helper sharedHelper] updateUnlockedSticker:self.unlockedAll
                                              withKey:@"All"];
         NSLog(@"unlockedAll");
+        [KVNProgress dismiss];
     }];
     [PFPurchase addObserverForProduct:@"com.intencemedia.moviefxstickers.animals"
                                 block:^(SKPaymentTransaction *transaction) {
@@ -71,6 +72,7 @@
         [[Helper sharedHelper] updateUnlockedSticker:self.unlockedAnimals
                                              withKey:@"Animals"];
         NSLog(@"unlockedAnimals");
+        [KVNProgress dismiss];
     }];
     [PFPurchase addObserverForProduct:@"com.intencemedia.moviefxstickers.dinosaur"
                                 block:^(SKPaymentTransaction *transaction) {
@@ -78,6 +80,7 @@
         [[Helper sharedHelper] updateUnlockedSticker:self.unlockedDinosaur
                                              withKey:@"Dinosaur"];
         NSLog(@"unlockedDinosaur");
+        [KVNProgress dismiss];
     }];
     [PFPurchase addObserverForProduct:@"com.intencemedia.moviefxstickers.haunted"
                                 block:^(SKPaymentTransaction *transaction) {
@@ -85,6 +88,7 @@
         [[Helper sharedHelper] updateUnlockedSticker:self.unlockedHaunted
                                              withKey:@"Haunted"];
         NSLog(@"unlockedHaunted");
+        [KVNProgress dismiss];
     }];
     [PFPurchase addObserverForProduct:@"com.intencemedia.moviefxstickers.mothernature"
                                 block:^(SKPaymentTransaction *transaction) {
@@ -92,6 +96,7 @@
         [[Helper sharedHelper] updateUnlockedSticker:self.unlockedMotherNature
                                              withKey:@"Mother Nature"];
         NSLog(@"unlockedMotherNature");
+        [KVNProgress dismiss];
     }];
     [PFPurchase addObserverForProduct:@"com.intencemedia.moviefxstickers.scifi"
                                 block:^(SKPaymentTransaction *transaction) {
@@ -99,6 +104,7 @@
         [[Helper sharedHelper] updateUnlockedSticker:self.unlockedSciFi
                                              withKey:@"Sci-Fi"];
         NSLog(@"unlockedSciFi");
+        [KVNProgress dismiss];
     }];
     [PFPurchase addObserverForProduct:@"com.intencemedia.moviefxstickers.seacreatures"
                                 block:^(SKPaymentTransaction *transaction) {
@@ -106,6 +112,7 @@
         [[Helper sharedHelper] updateUnlockedSticker:self.unlockedSeaCreatures
                                              withKey:@"Sea Creatures"];
         NSLog(@"unlockedSeaCreatures");
+        [KVNProgress dismiss];
     }];
     [PFPurchase addObserverForProduct:@"com.intencemedia.moviefxstickers.war"
                                 block:^(SKPaymentTransaction *transaction) {
@@ -113,6 +120,7 @@
         [[Helper sharedHelper] updateUnlockedSticker:self.unlockedWar
                                              withKey:@"War"];
         NSLog(@"unlockedWar");
+        [KVNProgress dismiss];
     }];
     [PFPurchase addObserverForProduct:@"com.intencemedia.moviefxstickers.zombie"
                                 block:^(SKPaymentTransaction *transaction) {
@@ -120,6 +128,7 @@
         [[Helper sharedHelper] updateUnlockedSticker:self.unlockedZombie
                                              withKey:@"Zombie"];
         NSLog(@"unlockedZombie");
+        [KVNProgress dismiss];
     }];
 
     

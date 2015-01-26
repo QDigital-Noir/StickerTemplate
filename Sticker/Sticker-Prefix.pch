@@ -28,6 +28,7 @@
     #import <FacebookSDK/FacebookSDK.h>
     #import "AMPopTip.h"
     #import "Flurry.h"
+    #import "KVNProgress.h"
 
 #define IS_IOS_AT_LEAST(ver)    ([[[UIDevice currentDevice] systemVersion] compare:ver] != NSOrderedAscending)
 #define AppDelegateAccessor ((AppDelegate *)[[UIApplication sharedApplication] delegate])

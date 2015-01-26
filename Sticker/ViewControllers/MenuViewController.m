@@ -132,21 +132,32 @@
         if (indexPath.row == 0)
         {
             NSLog(@"Unlock All Tapped");
+            KVNProgressConfiguration *basicConfiguration = [[KVNProgressConfiguration alloc] init];
+            basicConfiguration.backgroundType = KVNProgressBackgroundTypeSolid;
+            basicConfiguration.fullScreen = YES;
+            [KVNProgress showWithStatus:@"Loading..."];
+            
             [PFPurchase buyProduct:@"com.intencemedia.moviefxstickers.unlockall" block:^(NSError *error) {
                 if (!error)
                 {
                     // Run UI logic that informs user the product has been purchased, such as displaying an alert view.
                     NSLog(@"Unlock All Success");
+                    [KVNProgress dismiss];
                 }
                 else
                 {
                     NSLog(@"IAP Error : %@", error.localizedDescription);
+                    [KVNProgress showErrorWithStatus:@"Error"];
                 }
             }];
         }
         else if (indexPath.row == 1)
         {
             NSLog(@"Restore Tapped");
+            KVNProgressConfiguration *basicConfiguration = [[KVNProgressConfiguration alloc] init];;
+            basicConfiguration.backgroundType = KVNProgressBackgroundTypeSolid;
+            basicConfiguration.fullScreen = YES;
+            [KVNProgress showWithStatus:@"Loading..."];
             [PFPurchase restore];
         }
         else

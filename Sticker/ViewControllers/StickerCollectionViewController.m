@@ -117,16 +117,23 @@
     else
     {
         NSLog(@"Buying : %@", [[Helper sharedHelper] getIAPIdentifierWithKey:self.cateName]);
+        KVNProgressConfiguration *basicConfiguration = [[KVNProgressConfiguration alloc] init];
+        basicConfiguration.backgroundType = KVNProgressBackgroundTypeSolid;
+        basicConfiguration.fullScreen = YES;
+        [KVNProgress showWithStatus:@"Loading..."];
+        
         [PFPurchase buyProduct:[[Helper sharedHelper] getIAPIdentifierWithKey:self.cateName] block:^(NSError *error) {
             if (!error)
             {
                 // Run UI logic that informs user the product has been purchased, such as displaying an alert view.
                 NSLog(@"Unlock %@ Success", self.cateName);
                 [self.stickerCollectionView reloadData];
+                [KVNProgress dismiss];
             }
             else
             {
                 NSLog(@"IAP Error : %@", error.localizedDescription);
+                [KVNProgress showErrorWithStatus:@"Error"];
             }
         }];
     }
